@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>রসায়ন | HSC 2026 সহজ শিক্ষণ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@100;200;300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&family=Source+Serif+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --platinum: #E5E4E2;
+            --charcoal: #1A1A1A;
+            --cream: #F7F5F0;
+            --dark-green: #0A5C36;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--cream);
+            color: var(--charcoal);
+            letter-spacing: 0.01em;
+            line-height: 1.8;
+        }
+        
+        .headline-font { font-family: 'Playfair Display', serif; font-weight: 700; letter-spacing: -0.02em; }
+        .elegant-font { font-family: 'Cormorant Garamond', serif; font-weight: 500; letter-spacing: 0.02em; }
+        .reading-font { font-family: 'Source Serif Pro', serif; font-weight: 300; letter-spacing: 0.01em; line-height: 1.9; }
+        
+        .header-premium {
+            background: linear-gradient(135deg, #0A3C2A 0%, #0A5C36 100%);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .gold-accent { color: var(--gold); }
+
+        /* Chapter Cards */
+        .chapter-link-card {
+            display: block; background: white; padding: 2.5rem; border-radius: 2px;
+            border-left: 4px solid var(--dark-green); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        .chapter-link-card:hover {
+            border-left-color: var(--gold); box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .chapter-number { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; color: var(--dark-green); }
+        .chapter-title { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 600; color: var(--charcoal); }
+        .chapter-description { color: #555; font-size: 0.95rem; margin-top: 0.75rem; }
+
+        /* Organic Special Card */
+        .organic-card {
+            background: linear-gradient(135deg, #1a2a3a 0%, #0d1117 100%);
+            color: white; border: 1px solid rgba(212, 175, 55, 0.3);
+            position: relative; overflow: hidden;
+        }
+        .organic-card::before {
+            content: ''; position: absolute; top: 0; right: 0; width: 150px; height: 150px;
+            background: url('https://www.transparenttextures.com/patterns/benzene.png'); opacity: 0.1;
+        }
+
+        /* Buttons */
+        .gold-button {
+            background: transparent; color: var(--gold); padding: 1rem 2.5rem;
+            border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 1px;
+            font-family: 'Inter', sans-serif; transition: all 0.4s ease;
+        }
+        .gold-button:hover { border-color: var(--gold); background: rgba(212, 175, 55, 0.05); }
+
+        .green-button {
+            background: linear-gradient(135deg, #0A5C36 0%, #0A7C4F 100%); color: white;
+            padding: 1rem 2.5rem; border: 1px solid rgba(10, 92, 54, 0.3); border-radius: 1px;
+            font-family: 'Inter', sans-serif; transition: all 0.4s ease;
+        }
+        .green-button:hover {
+            background: linear-gradient(135deg, #0A7C4F 0%, #0A5C36 100%);
+            box-shadow: 0 8px 20px rgba(10, 92, 54, 0.2); transform: translateY(-1px);
+        }
+
+        .navigation-link {
+            position: relative; padding-bottom: 4px; color: rgba(255, 255, 255, 0.9);
+            font-weight: 300; letter-spacing: 0.03em; transition: all 0.3s ease;
+        }
+        .navigation-link:hover { color: white; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="header-premium fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-8">
+            <div class="flex justify-between items-center h-24">
+                <div class="flex items-center space-x-4 text-white">
+                    <div class="w-10 h-10 rounded-full border border-gold/40 flex items-center justify-center">
+                        <div class="text-xs tracking-widest opacity-70">২০২৬</div>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-light tracking-widest elegant-font">HSC 2026</div>
+                        <div class="headline-font text-3xl mt-1">সহজ শিক্ষণ</div>
+                    </div>
+                </div>
+                <nav class="hidden lg:flex space-x-12 items-center">
+                    <a href="index.html" class="navigation-link elegant-font text-lg">হোম</a>
+                    <a href="physics.html" class="navigation-link elegant-font text-lg">পদার্থবিজ্ঞান</a>
+                    <a href="chemistry.html" class="navigation-link elegant-font text-lg text-white font-semibold">রসায়ন</a>
+                    <a href="math.html" class="navigation-link elegant-font text-lg">গণিত</a>
+                    <div class="w-px h-6 bg-white/20"></div>
+                    <button class="gold-button elegant-font px-6 py-2">প্রবেশ</button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="bg-white pt-40 pb-20 border-b border-gray-200">
+        <div class="container mx-auto px-8">
+            <div class="flex items-center space-x-6 mb-4">
+                <a href="index.html" class="text-gray-500 hover:text-dark-green transition elegant-font text-sm"><i class="fas fa-arrow-left mr-2"></i> সকল বিষয় </a>
+                <span class="text-gray-400">/</span>
+                <span class="elegant-font text-sm gold-accent">রসায়ন</span>
+            </div>
+            <h1 class="headline-font text-6xl mb-4">রসায়ন (Chemistry)</h1>
+            <p class="reading-font text-xl text-gray-700 max-w-4xl">
+                জৈব যৌগের নামকরণ থেকে শুরু করে রাসায়নিক সাম্যাবস্থার গাণিতিক সমস্যা—রসায়নের ভীতি কাটিয়ে ওঠার জন্য সাজানো হয়েছে আমাদের এই কোর্সটি।
+            </p>
+        </div>
+    </section>
+
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-8">
+            <div class="organic-card p-10 rounded-sm shadow-xl flex flex-col md:flex-row items-center justify-between">
+                <div class="md:w-2/3 z-10">
+                    <div class="flex items-center mb-4">
+                        <span class="bg-gold text-charcoal text-xs font-bold px-2 py-1 rounded mr-3">PREMIUM MODULE</span>
+                        <h2 class="headline-font text-3xl md:text-4xl text-white">জৈব রসায়ন (Organic Chemistry)</h2>
+                    </div>
+                    <p class="reading-font text-gray-300 text-lg mb-8">
+                        জৈব রসায়নের বিশাল সিলেবাসকে আমরা ছোট ছোট অংশে ভাগ করে সহজ করেছি। নামকরণ, সমাণুতা এবং বিক্রিয়ার কৌশল (Reaction Mechanism) এখন হাতের মুঠোয়।
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="chemistry_organic.html" class="gold-button hover:bg-gold/10 text-white border-gold">
+                            মডিউল শুরু করুন
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white flex items-center px-4 py-3 elegant-font">
+                            <i class="fas fa-play-circle mr-2"></i> ফ্রি ক্লাস
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/3 mt-8 md:mt-0 flex justify-center z-10">
+                    <i class="fas fa-flask text-9xl text-gold/20"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="chapters" class="py-20">
+        <div class="container mx-auto px-8">
+            <div class="flex justify-between items-end mb-12">
+                <h2 class="headline-font text-4xl">মূল অধ্যায়সমূহ</h2>
+                <span class="text-sm text-gray-500 elegant-font">১ম ও ২য় পত্র</span>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                
+                <a href="chemistry_chapter2.html" class="chapter-link-card">
+                    <div class="flex items-start">
+                        <div class="chapter-number mr-6">২</div>
+                        <div>
+                            <h3 class="chapter-title">গুণগত রসায়ন</h3>
+                            <div class="text-xs text-gray-500 uppercase tracking-widest mb-2">১ম পত্র</div>
+                            <p class="chapter-description reading-font">
+                                কোয়ান্টাম সংখ্যা, ইলেকট্রন বিন্যাস, দ্রাব্যতা ও দ্রাব্যতা গুণফল (Ksp) এবং আয়ন শনাক্তকরণ।
+                            </p>
+                            <span class="text-xs elegant-font mt-3 inline-block text-dark-green hover:text-gold transition">
+                                <i class="fas fa-book-open mr-1"></i> বিস্তারিত পড়ুন
+                            </span>
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="chemistry_chapter3.html" class="chapter-link-card">
+                    <div class="flex items-start">
+                        <div class="chapter-number mr-6">৩</div>
+                        <div>
+                            <h3 class="chapter-title">পর্যায়বৃত্ত ধর্ম ও বন্ধন</h3>
+                            <div class="text-xs text-gray-500 uppercase tracking-widest mb-2">১ম পত্র</div>
+                            <p class="chapter-description reading-font">
+                                আয়নীকরণ শক্তি, ইলেকট্রন আসক্তি, হাইব্রিডাইজেশন (সংকরায়ন) এবং ফাজানের নীতি।
+                            </p>
+                            <span class="text-xs elegant-font mt-3 inline-block text-dark-green hover:text-gold transition">
+                                <i class="fas fa-book-open mr-1"></i> বিস্তারিত পড়ুন
+                            </span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="chemistry_chapter4.html" class="chapter-link-card">
+                    <div class="flex items-start">
+                        <div class="chapter-number mr-6">৪</div>
+                        <div>
+                            <h3 class="chapter-title">রাসায়নিক পরিবর্তন</h3>
+                            <div class="text-xs text-gray-500 uppercase tracking-widest mb-2">১ম পত্র</div>
+                            <p class="chapter-description reading-font">
+                                ভরক্রিয়া সূত্র, সামধ্রুবক (Kp, Kc), pH বাফার দ্রবণ এবং হেসের সূত্র।
+                            </p>
+                            <span class="text-xs elegant-font mt-3 inline-block text-dark-green hover:text-gold transition">
+                                <i class="fas fa-book-open mr-1"></i> বিস্তারিত পড়ুন
+                            </span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="chemistry_quant.html" class="chapter-link-card">
+                    <div class="flex items-start">
+                        <div class="chapter-number mr-6">৩</div>
+                        <div>
+                            <h3 class="chapter-title">পরিমাণগত রসায়ন</h3>
+                            <div class="text-xs text-gray-500 uppercase tracking-widest mb-2">২য় পত্র</div>
+                            <p class="chapter-description reading-font">
+                                মোলারিটি, টাইটেশন, জারণ-বিজারণ সমতা এবং স্টয়কিওমিতি।
+                            </p>
+                            <span class="text-xs elegant-font mt-3 inline-block text-dark-green hover:text-gold transition">
+                                <i class="fas fa-book-open mr-1"></i> বিস্তারিত পড়ুন
+                            </span>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+            
+            <div class="text-center mt-16">
+                <a href="#" class="green-button elegant-font"> <i class="fas fa-vial mr-2"></i> ল্যাব ভিডিও দেখুন </a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="header-premium text-white py-20">
+        <div class="container mx-auto px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div>
+                    <div class="flex items-center space-x-2 mb-8">
+                        <div class="w-8 h-8 rounded-full border border-gold/40 flex items-center justify-center">
+                            <div class="text-xs tracking-widest opacity-70">২০২৬</div>
+                        </div>
+                        <div class="headline-font text-xl">সহজ শিক্ষণ</div>
+                    </div>
+                    <p class="reading-font text-gray-400">
+                        রসায়নের জটিল বিক্রিয়াগুলো এখন পানির মতো সহজ।
+                    </p>
+                </div>
+                <div>
+                    <h4 class="headline-font text-xl mb-8 gold-accent">দ্রুত লিংক</h4>
+                    <ul class="space-y-4">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition elegant-font">হোম</a></li>
+                        <li><a href="physics.html" class="text-gray-400 hover:text-white transition elegant-font">পদার্থবিজ্ঞান</a></li>
+                        <li><a href="math.html" class="text-gray-400 hover:text-white transition elegant-font">গণিত</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="headline-font text-xl mb-8 gold-accent">রিসোর্স</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition elegant-font">নোটস</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition elegant-font">সাজেশন</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition elegant-font">প্রশ্ন ব্যাংক</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="headline-font text-xl mb-8 gold-accent">যোগাযোগ</h4>
+                    <ul class="space-y-4 text-gray-400">
+                        <li class="flex items-center"><i class="fas fa-envelope mr-4 text-gold/60"></i> support@hsc2026.com</li>
+                        <li class="flex items-center"><i class="fas fa-phone mr-4 text-gold/60"></i> +880 1XXXXXXXXX</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-12 text-center mt-12">
+                <p class="text-gray-500 elegant-font">&copy; ২০২৫ সহজ শিক্ষণ</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

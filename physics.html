@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>পদার্থবিজ্ঞান | HSC 2026 সহজ শিক্ষণ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@100;200;300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&family=Source+Serif+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --platinum: #E5E4E2;
+            --charcoal: #1A1A1A;
+            --cream: #F7F5F0;
+            --dark-green: #0A5C36;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--cream);
+            color: var(--charcoal);
+            letter-spacing: 0.01em;
+            line-height: 1.8;
+        }
+        
+        .headline-font {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        
+        .elegant-font {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+        }
+        
+        .reading-font {
+            font-family: 'Source Serif Pro', serif;
+            font-weight: 300;
+            letter-spacing: 0.01em;
+            line-height: 1.9;
+        }
+        
+        .ultra-card {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            border-radius: 2px;
+            box-shadow: 
+                0 4px 20px rgba(0, 0, 0, 0.03),
+                0 1px 2px rgba(0, 0, 0, 0.02),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        
+        .ultra-card:hover {
+            border-color: rgba(212, 175, 55, 0.3);
+            box-shadow: 
+                0 12px 40px rgba(0, 0, 0, 0.06),
+                0 2px 6px rgba(0, 0, 0, 0.03),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9);
+            transform: translateY(-2px);
+        }
+        
+        .header-premium {
+            background: linear-gradient(135deg, #0A3C2A 0%, #0A5C36 100%);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        
+        .gold-accent {
+            color: var(--gold);
+        }
+
+        .chapter-link-card {
+            display: block;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 2px;
+            border-left: 4px solid var(--dark-green);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .chapter-link-card:hover {
+            border-left-color: var(--gold);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .chapter-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark-green);
+        }
+
+        .chapter-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--charcoal);
+        }
+
+        .chapter-description {
+            color: #555;
+            font-size: 0.95rem;
+            margin-top: 0.75rem;
+        }
+        /* Re-including the green-button and gold-button styles for consistency */
+        .gold-button {
+            background: transparent;
+            color: var(--gold);
+            padding: 1rem 2.5rem;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            border-radius: 1px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .gold-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+        .gold-button:hover {
+            border-color: var(--gold);
+            background: rgba(212, 175, 55, 0.05);
+        }
+        .gold-button:hover::before {
+            left: 100%;
+        }
+        .green-button {
+            background: linear-gradient(135deg, #0A5C36 0%, #0A7C4F 100%);
+            color: white;
+            padding: 1rem 2.5rem;
+            border: 1px solid rgba(10, 92, 54, 0.3);
+            border-radius: 1px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        .green-button:hover {
+            background: linear-gradient(135deg, #0A7C4F 0%, #0A5C36 100%);
+            box-shadow: 0 8px 20px rgba(10, 92, 54, 0.2);
+            transform: translateY(-1px);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="header-premium fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-8">
+            <div class="flex justify-between items-center h-24">
+                <div class="flex items-center space-x-4 text-white">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-10 h-10 rounded-full border border-gold/40 flex items-center justify-center">
+                            <div class="text-xs tracking-widest opacity-70">২০২৬</div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-light tracking-widest elegant-font">HSC 2026</div>
+                        <div class="headline-font text-3xl mt-1">সহজ শিক্ষণ</div>
+                    </div>
+                </div>
+                <nav class="hidden lg:flex space-x-12 items-center">
+                    <a href="index.html#home" class="navigation-link elegant-font text-lg">হোম</a>
+                    <a href="index.html#subjects" class="navigation-link elegant-font text-lg">বিষয়সমূহ</a>
+                    <a href="index.html#explanations" class="navigation-link elegant-font text-lg">ব্যাখ্যা</a>
+                    <a href="index.html#topics" class="navigation-link elegant-font text-lg">টপিকস</a>
+                    <div class="w-px h-6 bg-white/20"></div>
+                    <button class="gold-button elegant-font">প্রবেশ</button>
+                </nav>
+                <button class="lg:hidden text-2xl text-white/80">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="bg-white pt-40 pb-20 border-b border-gray-200">
+        <div class="container mx-auto px-8">
+            <div class="flex items-center space-x-6 mb-4">
+                <a href="index.html#subjects" class="text-gray-500 hover:text-dark-green transition elegant-font text-sm"><i class="fas fa-arrow-left mr-2"></i> সকল বিষয় </a>
+                <span class="text-gray-400">/</span>
+                <span class="elegant-font text-sm gold-accent">পদার্থবিজ্ঞান</span>
+            </div>
+            <h1 class="headline-font text-6xl mb-4">পদার্থবিজ্ঞান (Physics)</h1>
+            <p class="reading-font text-xl text-gray-700 max-w-4xl">
+                এই বিভাগে পদার্থবিজ্ঞানের প্রথম পত্র ও দ্বিতীয় পত্রের সকল অধ্যায় এবং গুরুত্বপূর্ণ টপিকসগুলো সুবিন্যস্তভাবে সাজানো আছে। প্রতিটি অধ্যায়ে থাকবে নোট, ভিডিও লেকচার ও মডেল টেস্ট।
+            </p>
+        </div>
+    </section>
+
+    <section id="chapters" class="py-20">
+        <div class="container mx-auto px-8">
+            <h2 class="headline-font text-4xl mb-12">অধ্যায়সমূহ (আপনার পেজসমূহ)</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                
+                <a href="physics_chapter1.html" class="chapter-link-card">
+                    <div class="flex items-start">
+                        <div class="chapter-number mr-6">১</div>
+                        <div>
+                            <h3 class="chapter-title">ভৌত জগৎ ও পরিমাপ</h3>
+                            <p class="chapter-description reading-font">
+                                বৈজ্ঞানিক পদ্ধতি, ত্রুটি বিশ্লেষণ, মাত্রা ও পরিমাপের সঠিক ব্যবহার।
+                            </p>
+                            <span class="text-xs elegant-font mt-2 inline-block text-dark-green hover:text-gold transition">
+                                <i class="fas fa-book-open mr-1"></i> প্রবেশ করুন
+                            </span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="physics_chapter2.html" class="chapter-link-card">
+                    <div class="flex items-start">
+                        <div class="chapter-number mr-6">২</div>
+                        <div>
+                            <h3 class="chapter-title">ভেক্টর</h3>
+                            <p class="chapter-description reading-font">
+                                ভেক্টর যোগ ও বিয়োগ, লব্ধির মান ও দিক নির্ণয়, ডট ও ক্রস গুণনের বিস্তারিত আলোচনা।
+                            </p>
+                            <span class="text-xs elegant-font mt-2 inline-block text-dark-green hover:text-gold transition">
+                                <i class="fas fa-book-open mr-1"></i> প্রবেশ করুন
+                            </span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="physics_chapter3.html" class="chapter-link-card">
+                    <div class="flex items-start">
+                        <div class="chapter-number mr-6">৩</div>
+                        <div>
+                            <h3 class="chapter-title">গতিবিদ্যা</h3>
+                            <p class="chapter-description reading-font">
+                                একমাত্রিক ও দ্বিমাত্রিক গতি, প্রাসের গতি, আপেক্ষিক বেগ এবং এর সমস্যার সমাধান।
+                            </p>
+                            <span class="text-xs elegant-font mt-2 inline-block text-dark-green hover:text-gold transition">
+                                <i class="fas fa-book-open mr-1"></i> প্রবেশ করুন
+                            </span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="physics_chapter4.html" class="chapter-link-card">
+                    <div class="flex items-start">
+                        <div class="chapter-number mr-6">৪</div>
+                        <div>
+                            <h3 class="chapter-title">নিউটনিয়ান বলবিদ্যা</h3>
+                            <p class="chapter-description reading-font">
+                                নিউটনের সূত্রসমূহ, ঘর্ষণ বল, সংরক্ষণশীল ও অ-সংরক্ষণশীল বলের বিশ্লেষণ।
+                            </p>
+                            <span class="text-xs elegant-font mt-2 inline-block text-dark-green hover:text-gold transition">
+                                <i class="fas fa-book-open mr-1"></i> প্রবেশ করুন
+                            </span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="physics_topic_shm.html" class="chapter-link-card">
+                    <div class="flex items-start">
+                        <div class="chapter-number mr-6">৫</div>
+                        <div>
+                            <h3 class="chapter-title">সরল ছন্দিত স্পন্দন (SHM)</h3>
+                            <p class="chapter-description reading-font">
+                                পর্যায়বৃত্ত গতি এবং এর প্রয়োগ, স্প্রিং-এর গতি ও শক্তি সংরক্ষণশীলতা।
+                            </p>
+                            <span class="text-xs elegant-font mt-2 inline-block text-dark-green hover:text-gold transition">
+                                <i class="fas fa-book-open mr-1"></i> প্রবেশ করুন
+                            </span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="text-center mt-16">
+                <a href="#" class="green-button elegant-font"> মডেল টেস্ট দিন </a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="header-premium text-white py-20">
+        <div class="container mx-auto px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                
+                <div>
+                    <div class="flex items-center space-x-2 mb-8">
+                        <div class="w-8 h-8 rounded-full border border-gold/40 flex items-center justify-center">
+                            <div class="text-xs tracking-widest opacity-70">২০২৬</div>
+                        </div>
+                        <div class="headline-font text-xl">সহজ শিক্ষণ</div>
+                    </div>
+                    <p class="reading-font text-gray-400">
+                        HSC 2026 পরীক্ষার্থীদের জন্য বিজ্ঞানভিত্তিক এবং সম্পূর্ণ সিলেবাস কভার করা হয়েছে। গভীর এবং সম্পূর্ণ বোধগম্য ব্যাখ্যা।
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="headline-font text-xl mb-8 gold-accent">দ্রুত লিংক</h4>
+                    <ul class="space-y-4">
+                        <li><a href="index.html#home" class="text-gray-400 hover:text-white transition elegant-font">হোম</a></li>
+                        <li><a href="index.html#subjects" class="text-gray-400 hover:text-white transition elegant-font">বিষয়সমূহ</a></li>
+                        <li><a href="index.html#explanations" class="text-gray-400 hover:text-white transition elegant-font">ব্যাখ্যা</a></li>
+                        <li><a href="index.html#topics" class="text-gray-400 hover:text-white transition elegant-font">টপিকস</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition elegant-font">যোগাযোগ</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="headline-font text-xl mb-8 gold-accent">বিষয়</h4>
+                    <ul class="space-y-4">
+                        <li><a href="physics.html" class="text-gray-400 hover:text-white transition elegant-font">পদার্থবিজ্ঞান</a></li>
+                        <li><a href="chemistry.html" class="text-gray-400 hover:text-white transition elegant-font">রসায়ন</a></li>
+                        <li><a href="math.html" class="text-gray-400 hover:text-white transition elegant-font">গণিত</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition elegant-font">জীববিজ্ঞান (শীঘ্রই আসছে)</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="headline-font text-xl mb-8 gold-accent">যোগাযোগ</h4>
+                    <ul class="space-y-4 text-gray-400">
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-4 text-gold/60"></i>
+                            <a href="mailto:info@example.com" class="elegant-font hover:text-white transition">info@example.com</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-4 text-gold/60"></i>
+                            <span class="elegant-font">+880 1XXXXXXXXX</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-4 text-gold/60"></i>
+                            <span class="elegant-font">ঢাকা, বাংলাদেশ</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-clock mr-4 text-gold/60"></i>
+                            <span class="elegant-font">সোম-শুক্র, ৯ঃ০০ - ১৮ঃ০০</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="mt-10 pt-8 border-t border-white/10">
+                        <div class="text-sm text-gray-500 mb-4 elegant-font">নিয়মিত আপডেট পান</div>
+                        <div class="flex">
+                            <input type="email" placeholder="ইমেইল ঠিকানা" class="flex-grow px-4 py-3 bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-gold/30 elegant-font text-sm">
+                            <button class="bg-gold/10 border border-gold/30 text-gold px-6 elegant-font hover:bg-gold/20 transition">
+                                →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 pt-12 text-center">
+                <p class="text-gray-500 elegant-font">
+                    &copy; ২০২৫ HSC 2026 সহজ শিক্ষণ. সকল অধিকার সংরক্ষিত।
+                </p>
+                <p class="text-gray-600 text-sm mt-4 elegant-font">
+                    এই প্ল্যাটফর্মটি তৈরি করা হয়েছে HSC 2026 পরীক্ষার্থীদের জন্য। কোন বাণিজ্যিক উদ্দেশ্য নেই।
+                </p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>অধ্যায় ১: ম্যাট্রিক্স ও নির্ণায়ক | উচ্চতর গণিত</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@100;200;300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&family=Source+Serif+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --platinum: #E5E4E2;
+            --charcoal: #1A1A1A;
+            --cream: #F7F5F0;
+            --dark-green: #0A5C36;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--cream);
+            color: var(--charcoal);
+            letter-spacing: 0.01em;
+            line-height: 1.8;
+        }
+        
+        .headline-font { font-family: 'Playfair Display', serif; font-weight: 700; letter-spacing: -0.02em; }
+        .elegant-font { font-family: 'Cormorant Garamond', serif; font-weight: 500; letter-spacing: 0.02em; }
+        .reading-font { font-family: 'Source Serif Pro', serif; font-weight: 300; letter-spacing: 0.01em; line-height: 1.9; }
+        .math-font { font-family: 'Source Serif Pro', monospace; }
+        
+        .header-premium {
+            background: linear-gradient(135deg, #0A3C2A 0%, #0A5C36 100%);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        /* Buttons */
+        .gold-button {
+            background: transparent; color: var(--gold); padding: 0.75rem 2rem;
+            border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 1px;
+            font-family: 'Inter', sans-serif; transition: all 0.3s ease;
+        }
+        .gold-button:hover { background: rgba(212, 175, 55, 0.1); border-color: var(--gold); }
+
+        .green-button {
+            background: linear-gradient(135deg, #0A5C36 0%, #0A7C4F 100%); color: white;
+            padding: 0.75rem 2rem; border: 1px solid rgba(10, 92, 54, 0.3); border-radius: 1px;
+            font-family: 'Inter', sans-serif; transition: all 0.3s ease;
+        }
+        .green-button:hover {
+            background: linear-gradient(135deg, #0A7C4F 0%, #0A5C36 100%);
+            box-shadow: 0 4px 15px rgba(10, 92, 54, 0.3); transform: translateY(-1px);
+        }
+
+        /* Content Boxes */
+        .content-card {
+            background: white; border: 1px solid rgba(0,0,0,0.05); padding: 2.5rem;
+            margin-bottom: 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.02); border-radius: 2px;
+        }
+
+        .matrix-bracket {
+            display: inline-block; position: relative; padding: 0 10px;
+            border-left: 2px solid #333; border-right: 2px solid #333;
+            border-radius: 4px;
+        }
+
+        .shortcut-box {
+            background: #1A1A1A; color: #F7F5F0; padding: 2rem; border-radius: 2px;
+            border-top: 4px solid var(--gold); position: relative; overflow: hidden;
+            margin: 2rem 0;
+        }
+        
+        .shortcut-box::before {
+            content: 'MCQ HACK'; position: absolute; top: 10px; right: 10px;
+            background: var(--gold); color: black; font-size: 0.7rem; font-weight: bold;
+            padding: 2px 8px;
+        }
+
+        .sidebar-link {
+            display: block; padding: 1rem; border-bottom: 1px solid #eee; color: #555; transition: all 0.2s;
+        }
+        .sidebar-link:hover, .sidebar-link.active {
+            background: #F0FDF4; color: var(--dark-green); padding-left: 1.5rem;
+            border-left: 3px solid var(--dark-green);
+        }
+
+        .navigation-link {
+            position: relative; padding-bottom: 4px; color: rgba(255, 255, 255, 0.9);
+            font-weight: 300; letter-spacing: 0.03em; transition: all 0.3s ease;
+        }
+        .navigation-link:hover { color: white; }
+        
+        .play-button {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 60px; height: 60px; background: rgba(255,255,255,0.9); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; color: var(--dark-green);
+            font-size: 24px; transition: all 0.3s;
+        }
+        .video-thumbnail:hover .play-button { transform: translate(-50%, -50%) scale(1.1); background: white; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="header-premium fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-8">
+            <div class="flex justify-between items-center h-24">
+                <div class="flex items-center space-x-4 text-white">
+                    <div class="w-10 h-10 rounded-full border border-gold/40 flex items-center justify-center">
+                        <div class="text-xs tracking-widest opacity-70">২০২৬</div>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-light tracking-widest elegant-font">HSC 2026</div>
+                        <div class="headline-font text-3xl mt-1">সহজ শিক্ষণ</div>
+                    </div>
+                </div>
+                <nav class="hidden lg:flex space-x-12 items-center">
+                    <a href="index.html" class="navigation-link elegant-font text-lg">হোম</a>
+                    <a href="physics.html" class="navigation-link elegant-font text-lg">পদার্থবিজ্ঞান</a>
+                    <a href="chemistry.html" class="navigation-link elegant-font text-lg">রসায়ন</a>
+                    <a href="math.html" class="navigation-link elegant-font text-lg text-white font-semibold">গণিত</a>
+                    <div class="w-px h-6 bg-white/20"></div>
+                    <button class="gold-button elegant-font text-sm px-6 py-2">প্রোফাইল</button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="bg-white pt-32 pb-12 border-b border-gray-100">
+        <div class="container mx-auto px-8">
+            <div class="flex items-center space-x-3 text-sm elegant-font text-gray-500 mb-6">
+                <a href="index.html" class="hover:text-dark-green">হোম</a>
+                <span>/</span>
+                <a href="math.html" class="hover:text-dark-green">গণিত</a>
+                <span>/</span>
+                <span class="text-dark-green font-semibold">অধ্যায় ১</span>
+            </div>
+            
+            <div class="flex flex-col md:flex-row justify-between items-end">
+                <div>
+                    <h1 class="headline-font text-5xl mb-4 text-charcoal">ম্যাট্রিক্স ও নির্ণায়ক</h1>
+                    <p class="reading-font text-xl text-gray-600 max-w-2xl">
+                        ম্যাট্রিক্সের অপারেশন, নির্ণায়কের ধর্মাবলী এবং একঘাত সমীকরণ জোট সমাধানের পদ্ধতিসমূহ।
+                    </p>
+                </div>
+                <div class="mt-6 md:mt-0 flex space-x-4">
+                    <span class="px-4 py-2 bg-green-50 text-dark-green rounded text-sm elegant-font border border-green-100">
+                        <i class="fas fa-th mr-2"></i>বর্গ ম্যাট্রিক্স
+                    </span>
+                    <span class="px-4 py-2 bg-yellow-50 text-yellow-700 rounded text-sm elegant-font border border-yellow-100">
+                        <i class="fas fa-bolt mr-2"></i>ক্রেমারের নিয়ম
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16">
+        <div class="container mx-auto px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-12">
+                
+                <div class="lg:col-span-1">
+                    <div class="bg-white border border-gray-200 sticky top-32 rounded-sm shadow-sm">
+                        <div class="p-4 bg-gray-50 border-b border-gray-200">
+                            <h3 class="elegant-font font-bold text-lg text-charcoal">টপিকস সূচিপত্র</h3>
+                        </div>
+                        <nav>
+                            <a href="#types" class="sidebar-link active">ম্যাট্রিক্সের প্রকারভেদ</a>
+                            <a href="#multiplication" class="sidebar-link">ম্যাট্রিক্সের গুণন</a>
+                            <a href="#determinant" class="sidebar-link">নির্ণায়কের ধর্মাবলী</a>
+                            <a href="#inverse" class="sidebar-link text-dark-green font-semibold">বিপরীত ম্যাট্রিক্স (Inverse)</a>
+                            <a href="#cramer" class="sidebar-link">ক্রেমারের নিয়ম</a>
+                        </nav>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-3">
+                    
+                    <div id="video" class="mb-12">
+                        <div class="video-thumbnail relative aspect-video bg-gray-900 mb-6 rounded-sm overflow-hidden cursor-pointer group">
+                            <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" class="w-full h-full object-cover opacity-60 group-hover:scale-105 transition duration-700" alt="Math Matrix">
+                            <div class="play-button">
+                                <i class="fas fa-play ml-1"></i>
+                            </div>
+                            <div class="absolute bottom-4 left-4 text-white">
+                                <span class="bg-green-600 px-2 py-1 text-xs rounded font-bold mr-2">

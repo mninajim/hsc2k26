@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>অধ্যায় ৩: গতিবিদ্যা | পদার্থবিজ্ঞান</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@100;200;300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&family=Source+Serif+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --platinum: #E5E4E2;
+            --charcoal: #1A1A1A;
+            --cream: #F7F5F0;
+            --dark-green: #0A5C36;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--cream);
+            color: var(--charcoal);
+            letter-spacing: 0.01em;
+            line-height: 1.8;
+        }
+        
+        .headline-font { font-family: 'Playfair Display', serif; font-weight: 700; letter-spacing: -0.02em; }
+        .elegant-font { font-family: 'Cormorant Garamond', serif; font-weight: 500; letter-spacing: 0.02em; }
+        .reading-font { font-family: 'Source Serif Pro', serif; font-weight: 300; letter-spacing: 0.01em; line-height: 1.9; }
+        
+        .header-premium {
+            background: linear-gradient(135deg, #0A3C2A 0%, #0A5C36 100%);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .gold-accent { color: var(--gold); }
+        .green-accent { color: var(--dark-green); }
+
+        /* Buttons */
+        .gold-button {
+            background: transparent; color: var(--gold); padding: 0.75rem 2rem;
+            border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 1px;
+            font-family: 'Inter', sans-serif; transition: all 0.3s ease;
+        }
+        .gold-button:hover { background: rgba(212, 175, 55, 0.1); border-color: var(--gold); }
+
+        .green-button {
+            background: linear-gradient(135deg, #0A5C36 0%, #0A7C4F 100%); color: white;
+            padding: 0.75rem 2rem; border: 1px solid rgba(10, 92, 54, 0.3); border-radius: 1px;
+            font-family: 'Inter', sans-serif; transition: all 0.3s ease;
+        }
+        .green-button:hover {
+            background: linear-gradient(135deg, #0A7C4F 0%, #0A5C36 100%);
+            box-shadow: 0 4px 15px rgba(10, 92, 54, 0.3); transform: translateY(-1px);
+        }
+
+        /* Content Boxes */
+        .content-card {
+            background: white; border: 1px solid rgba(0,0,0,0.05); padding: 2.5rem;
+            margin-bottom: 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.02); border-radius: 2px;
+        }
+
+        .formula-card {
+            background: #1A1A1A; color: #F7F5F0; padding: 2rem; border-radius: 2px;
+            border-top: 3px solid var(--gold); position: relative; overflow: hidden;
+            font-family: 'Source Serif Pro', monospace;
+        }
+        
+        .formula-card::before {
+            content: 'FORMULA'; position: absolute; top: 10px; right: 15px;
+            font-size: 0.7rem; letter-spacing: 0.2em; color: rgba(255,255,255,0.2);
+        }
+
+        .projectile-box {
+            background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%);
+            border: 1px solid #BBF7D0; padding: 2rem; border-radius: 2px; margin: 2rem 0;
+            border-left: 4px solid var(--dark-green);
+        }
+
+        .sidebar-link {
+            display: block; padding: 1rem; border-bottom: 1px solid #eee; color: #555; transition: all 0.2s;
+        }
+        .sidebar-link:hover, .sidebar-link.active {
+            background: #F0FDF4; color: var(--dark-green); padding-left: 1.5rem;
+            border-left: 3px solid var(--dark-green);
+        }
+
+        .navigation-link {
+            position: relative; padding-bottom: 4px; color: rgba(255, 255, 255, 0.9);
+            font-weight: 300; letter-spacing: 0.03em; transition: all 0.3s ease;
+        }
+        .navigation-link:hover { color: white; }
+        
+        .play-button {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 60px; height: 60px; background: rgba(255,255,255,0.9); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; color: var(--dark-green);
+            font-size: 24px; transition: all 0.3s;
+        }
+        .video-thumbnail:hover .play-button { transform: translate(-50%, -50%) scale(1.1); background: white; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="header-premium fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-8">
+            <div class="flex justify-between items-center h-24">
+                <div class="flex items-center space-x-4 text-white">
+                    <div class="w-10 h-10 rounded-full border border-gold/40 flex items-center justify-center">
+                        <div class="text-xs tracking-widest opacity-70">২০২৬</div>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-light tracking-widest elegant-font">HSC 2026</div>
+                        <div class="headline-font text-3xl mt-1">সহজ শিক্ষণ</div>
+                    </div>
+                </div>
+                <nav class="hidden lg:flex space-x-12 items-center">
+                    <a href="index.html" class="navigation-link elegant-font text-lg">হোম</a>
+                    <a href="physics.html" class="navigation-link elegant-font text-lg text-white font-semibold">পদার্থবিজ্ঞান</a>
+                    <a href="chemistry.html" class="navigation-link elegant-font text-lg">রসায়ন</a>
+                    <a href="math.html" class="navigation-link elegant-font text-lg">গণিত</a>
+                    <div class="w-px h-6 bg-white/20"></div>
+                    <button class="gold-button elegant-font text-sm px-6 py-2">প্রোফাইল</button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="bg-white pt-32 pb-12 border-b border-gray-100">
+        <div class="container mx-auto px-8">
+            <div class="flex items-center space-x-3 text-sm elegant-font text-gray-500 mb-6">
+                <a href="index.html" class="hover:text-dark-green">হোম</a>
+                <span>/</span>
+                <a href="physics.html" class="hover:text-dark-green">পদার্থবিজ্ঞান</a>
+                <span>/</span>
+                <span class="text-dark-green font-semibold">অধ্যায় ৩</span>
+            </div>
+            
+            <div class="flex flex-col md:flex-row justify-between items-end">
+                <div>
+                    <h1 class="headline-font text-5xl mb-4 text-charcoal">গতিবিদ্যা (Dynamics)</h1>
+                    <p class="reading-font text-xl text-gray-600 max-w-2xl">
+                        রৈখিক ও কৌণিক গতি, প্রাসের গতিপথ (Projectile) এবং গতির সমীকরণের বাস্তব প্রয়োগ ও গাণিতিক বিশ্লেষণ।
+                    </p>
+                </div>
+                <div class="mt-6 md:mt-0 flex space-x-4">
+                    <span class="px-4 py-2 bg-green-50 text-dark-green rounded text-sm elegant-font border border-green-100">
+                        <i class="fas fa-chart-line mr-2"></i>গ্রাফ বিশ্লেষণ
+                    </span>
+                    <span class="px-4 py-2 bg-purple-50 text-purple-700 rounded text-sm elegant-font border border-purple-100">
+                        <i class="fas fa-rocket mr-2"></i>প্রাস স্পেশাল
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16">
+        <div class="container mx-auto px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-12">
+                
+                <div class="lg:col-span-1">
+                    <div class="bg-white border border-gray-200 sticky top-32 rounded-sm shadow-sm">
+                        <div class="p-4 bg-gray-50 border-b border-gray-200">
+                            <h3 class="elegant-font font-bold text-lg text-charcoal">এই অধ্যায়ের সূচি</h3>
+                        </div>
+                        <nav>
+                            <a href="#intro" class="sidebar-link active">গতির প্রকারভেদ ও স্থানাঙ্ক</a>
+                            <a href="#equations" class="sidebar-link">গতির সমীকরণ (SUVAT)</a>
+                            <a href="#projectile" class="sidebar-link text-dark-green font-semibold">প্রাসের গতি (Projectile)</a>
+                            <a href="#falling" class="sidebar-link">পড়ন্ত বস্তুর সূত্র</a>
+                            <a href="#graph" class="sidebar-link">লেখচিত্র বিশ্লেষণ</a>
+                        </nav>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-3">
+                    
+                    <div id="video" class="mb-12">
+                        <div class="video-thumbnail relative aspect-video bg-gray-900 mb-6 rounded-sm overflow-hidden cursor-pointer group">
+                            <img src="https://images.unsplash.com/photo-1517976487492-5750f3195933?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" class="w-full h-full object-cover opacity-60 group-hover:scale-105 transition duration-700" alt="Dynamics">
+                            <div class="play-button">
+                                <i class="fas fa-play ml-1"></i>
+                            </div>
+                            <div class="absolute bottom-4 left-4 text-white">
+                                <span class="bg-purple-600 px-2 py-1 text-xs rounded font-bold mr-2">ANIMATED</span>
+                                <span class="text-lg elegant-font">প্রাসের গতি: ভিজ্যুয়াল ব্যাখ্যা</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="equations" class="content-card">
+                        <h2 class="headline-font text-3xl mb-6 text-dark-green">১. গতির সমীকরণ (Equations of Motion)</h2>
+                        <p class="reading-font text-gray-700 mb-6">
+                            সমত্বরণে চলমান বস্তুর ক্ষেত্রে আমরা চারটি মৌলিক সমীকরণ ব্যবহার করি। এগুলোকে সংক্ষেপে SUVAT সমীকরণ বলা হয়।
+                        </p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="formula-card">
+                                <div class="text-gray-400 text-sm mb-2">বেগ ও সময়</div>
+                                <div class="text-2xl text-white font-bold">v = u + at</div>
+                            </div>
+                            <div class="formula-card">
+                                <div class="text-gray-400 text-sm mb-2">সরণ ও সময়</div>
+                                <div class="text-2xl text-white font-bold">s = ut + ½at²</div>
+                            </div>
+                            <div class="formula-card">
+                                <div class="text-gray-400 text-sm mb-2">বেগ ও সরণ</div>
+                                <div class="text-2xl text-white font-bold">v² = u² + 2as</div>
+                            </div>
+                            <div class="formula-card">
+                                <div class="text-gray-400 text-sm mb-2">গড় বেগ</div>
+                                <div class="text-2xl text-white font-bold">s = ½(u + v)t</div>
+                            </div>
+                        </div>
+                    </div>
+                   
+
+[Image of Projectile Motion Trajectory Physics]
+
+                    <div id="projectile" class="projectile-box relative">
+                        <div class="absolute -top-3 -right-3 bg-red-600 text-white px-3 py-1 text-xs font-bold rounded shadow-lg">HOT TOPIC</div>
+                        <h2 class="headline-font text-3xl mb-6 text-charcoal">২. প্রাসের গতি (Projectile Motion)</h2>
+                        
+                        <p class="reading-font text-gray-700 mb-6">
+                            যখন কোনো বস্তুকে অনুভূমিকের সাথে তির্যকভাবে নিক্ষেপ করা হয়, তখন তার গতিপথ হয় প্যারাবোলিক বা অধিবৃত্তাকার। এটি একটি দ্বিমাত্রিক গতি।
+                        </p>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                            <div class="bg-white p-4 rounded text-center border border-green-100 shadow-sm">
+                                <div class="text-sm text-gray-500 mb-2 elegant-font">বিচরণ কাল (T)</div>
+                                <div class="text-xl font-bold text-dark-green font-mono">T = (2v₀ sinθ) / g</div>
+                            </div>
+                            <div class="bg-white p-4 rounded text-center border border-green-100 shadow-sm">
+                                <div class="text-sm text-gray-500 mb-2 elegant-font">সর্বাধিক উচ্চতা (H)</div>
+                                <div class="text-xl font-bold text-dark-green font-mono">H = (v₀² sin²θ) / 2g</div>
+                            </div>
+                            <div class="bg-white p-4 rounded text-center border border-green-100 shadow-sm">
+                                <div class="text-sm text-gray-500 mb-2 elegant-font">পাল্লা (R)</div>
+                                <div class="text-xl font-bold text-dark-green font-mono">R = (v₀² sin2θ) / g</div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-6 rounded border border-dashed border-green-300">
+                            <h4 class="font-bold text-lg mb-2 text-dark-green elegant-font"><i class="fas fa-lightbulb text-gold mr-2"></i>মনে রাখুন:</h4>
+                            <ul class="list-disc list-inside text-gray-700 text-sm space-y-2">
+                                <li>নিক্ষেপণ কোণ <strong>45°</strong> হলে পাল্লা (Range) সর্বাধিক হয়।</li>
+                                <li>সর্বোচ্চ উচ্চতায় বস্তুর উলম্ব বেগ শূন্য (v_y = 0) হয়, কিন্তু অনুভূমিক বেগ (v_x = v₀ cosθ) থাকে।</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div id="graph" class="content-card">
+                        <h2 class="headline-font text-3xl mb-6 text-charcoal">৩. লেখচিত্র (Graphs)</h2>
+                        <p class="reading-font text-gray-700 mb-4">
+                            গতিবিদ্যায় লেখচিত্র বুঝলে অনেক জটিল অঙ্ক সহজে করা যায়।
+                        </p>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 rounded-full bg-gold/20 flex items-center justify-center mr-4 mt-1 text-gold">
+                                    <i class="fas fa-chart-area"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold text-charcoal">বেগ-সময় (v-t) লেখচিত্র</h5>
+                                    <p class="text-sm text-gray-600">লেখচিত্রের ঢাল (Slope) ত্বরণ নির্দেশ করে এবং ক্ষেত্রফল (Area) সরণ নির্দেশ করে।</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 rounded-full bg-gold/20 flex items-center justify-center mr-4 mt-1 text-gold">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold text-charcoal">সরণ-সময় (s-t) লেখচিত্র</h5>
+                                    <p class="text-sm text-gray-600">লেখচিত্রের ঢাল (Slope) বেগ নির্দেশ করে।</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-charcoal text-white p-10 rounded-sm text-center relative overflow-hidden mt-12">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-gold to-transparent"></div>
+                        <h3 class="headline-font text-3xl mb-4">প্রাসের গাণিতিক সমস্যা</h3>
+                        <p class="reading-font text-gray-400 mb-8 max-w-xl mx-auto">
+                            'বাঘ ও হরিণ', 'বুলেট ও কাঠ' এবং 'বিমান থেকে বোমা ফেলা' - এই ধরনের সৃজনশীল প্রশ্নের শিট।
+                        </p>
+                        <div class="flex justify-center space-x-4">
+                            <button class="gold-button bg-white/5 hover:bg-white/10 text-white border-white/20">
+                                <i class="fas fa-download mr-2"></i> PDF ডাউনলোড
+                            </button>
+                            <button class="green-button">
+                                <i class="fas fa-pen-alt mr-2"></i> কুইজ দিন
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-between mt-12">
+                        <a href="physics_chapter2.html" class="text-gray-500 hover:text-dark-green elegant-font flex items-center transition">
+                            <i class="fas fa-arrow-left mr-2"></i> অধ্যায় ২: ভেক্টর
+                        </a>
+                        <a href="physics_chapter4.html" class="green-button elegant-font flex items-center">
+                            পরবর্তী অধ্যায় (নিউটনিয়ান বলবিদ্যা) <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-charcoal text-white py-16 border-t border-gold/20">
+        <div class="container mx-auto px-8 text-center">
+            <div class="headline-font text-2xl mb-4">সহজ শিক্ষণ</div>
+            <p class="reading-font text-gray-500 mb-8">HSC 2026 | পদার্থবিজ্ঞান ১ম পত্র</p>
+            <div class="flex justify-center space-x-6 text-gray-400">
+                <a href="#" class="hover:text-gold transition"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="hover:text-gold transition"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="hover:text-gold transition"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p class="text-xs text-gray-600 mt-8 elegant-font">&copy; ২০২৫ সহজ শিক্ষণ</p>
+        </div>
+    </footer>
+
+</body>
+</html>

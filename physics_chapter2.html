@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>অধ্যায় ২: ভেক্টর | পদার্থবিজ্ঞান</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@100;200;300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&family=Source+Serif+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --platinum: #E5E4E2;
+            --charcoal: #1A1A1A;
+            --cream: #F7F5F0;
+            --dark-green: #0A5C36;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--cream);
+            color: var(--charcoal);
+            letter-spacing: 0.01em;
+            line-height: 1.8;
+        }
+        
+        .headline-font { font-family: 'Playfair Display', serif; font-weight: 700; letter-spacing: -0.02em; }
+        .elegant-font { font-family: 'Cormorant Garamond', serif; font-weight: 500; letter-spacing: 0.02em; }
+        .reading-font { font-family: 'Source Serif Pro', serif; font-weight: 300; letter-spacing: 0.01em; line-height: 1.9; }
+        
+        .header-premium {
+            background: linear-gradient(135deg, #0A3C2A 0%, #0A5C36 100%);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .gold-accent { color: var(--gold); }
+
+        /* Buttons */
+        .gold-button {
+            background: transparent; color: var(--gold); padding: 0.75rem 2rem;
+            border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 1px;
+            font-family: 'Inter', sans-serif; transition: all 0.3s ease;
+        }
+        .gold-button:hover { background: rgba(212, 175, 55, 0.1); border-color: var(--gold); }
+
+        .green-button {
+            background: linear-gradient(135deg, #0A5C36 0%, #0A7C4F 100%); color: white;
+            padding: 0.75rem 2rem; border: 1px solid rgba(10, 92, 54, 0.3); border-radius: 1px;
+            font-family: 'Inter', sans-serif; transition: all 0.3s ease;
+        }
+        .green-button:hover {
+            background: linear-gradient(135deg, #0A7C4F 0%, #0A5C36 100%);
+            box-shadow: 0 4px 15px rgba(10, 92, 54, 0.3); transform: translateY(-1px);
+        }
+
+        /* Content Elements */
+        .content-card {
+            background: white; border: 1px solid rgba(0,0,0,0.05); padding: 2.5rem;
+            margin-bottom: 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.02); border-radius: 2px;
+        }
+
+        .formula-box {
+            background: #1A1A1A; color: #E5E4E2; padding: 2rem;
+            border-left: 3px solid var(--gold); font-family: 'Source Serif Pro', monospace;
+            margin: 1.5rem 0; border-radius: 2px; font-size: 1.1rem;
+        }
+
+        .math-special-box {
+            background: linear-gradient(to right, #F0FDF4, #FFFFFF);
+            border: 1px solid #DCFCE7; padding: 2rem; border-radius: 2px; margin: 2rem 0;
+            border-left: 4px solid var(--dark-green);
+        }
+
+        .sidebar-link {
+            display: block; padding: 1rem; border-bottom: 1px solid #eee; color: #555; transition: all 0.2s;
+        }
+        .sidebar-link:hover, .sidebar-link.active {
+            background: #F0FDF4; color: var(--dark-green); padding-left: 1.5rem;
+            border-left: 3px solid var(--dark-green);
+        }
+
+        .navigation-link {
+            position: relative; padding-bottom: 4px; color: rgba(255, 255, 255, 0.9);
+            font-weight: 300; letter-spacing: 0.03em; transition: all 0.3s ease;
+        }
+        .navigation-link:hover { color: white; }
+        
+        .play-button {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 60px; height: 60px; background: rgba(255,255,255,0.9); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; color: var(--dark-green);
+            font-size: 24px; transition: all 0.3s;
+        }
+        .video-thumbnail:hover .play-button { transform: translate(-50%, -50%) scale(1.1); background: white; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="header-premium fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-8">
+            <div class="flex justify-between items-center h-24">
+                <div class="flex items-center space-x-4 text-white">
+                    <div class="w-10 h-10 rounded-full border border-gold/40 flex items-center justify-center">
+                        <div class="text-xs tracking-widest opacity-70">২০২৬</div>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-light tracking-widest elegant-font">HSC 2026</div>
+                        <div class="headline-font text-3xl mt-1">সহজ শিক্ষণ</div>
+                    </div>
+                </div>
+                <nav class="hidden lg:flex space-x-12 items-center">
+                    <a href="index.html" class="navigation-link elegant-font text-lg">হোম</a>
+                    <a href="physics.html" class="navigation-link elegant-font text-lg text-white font-semibold">পদার্থবিজ্ঞান</a>
+                    <a href="chemistry.html" class="navigation-link elegant-font text-lg">রসায়ন</a>
+                    <a href="math.html" class="navigation-link elegant-font text-lg">গণিত</a>
+                    <div class="w-px h-6 bg-white/20"></div>
+                    <button class="gold-button elegant-font text-sm px-6 py-2">প্রোফাইল</button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="bg-white pt-32 pb-12 border-b border-gray-100">
+        <div class="container mx-auto px-8">
+            <div class="flex items-center space-x-3 text-sm elegant-font text-gray-500 mb-6">
+                <a href="index.html" class="hover:text-dark-green">হোম</a>
+                <span>/</span>
+                <a href="physics.html" class="hover:text-dark-green">পদার্থবিজ্ঞান</a>
+                <span>/</span>
+                <span class="text-dark-green font-semibold">অধ্যায় ২</span>
+            </div>
+            
+            <div class="flex flex-col md:flex-row justify-between items-end">
+                <div>
+                    <h1 class="headline-font text-5xl mb-4 text-charcoal">ভেক্টর (Vector)</h1>
+                    <p class="reading-font text-xl text-gray-600 max-w-2xl">
+                        ভেক্টর যোগ, গুণন, নদী-নৌকা সমস্যা এবং ভেক্টর ক্যালকুলাসের সহজবোধ্য বিশ্লেষণ।
+                    </p>
+                </div>
+                <div class="mt-6 md:mt-0 flex space-x-4">
+                    <span class="px-4 py-2 bg-green-50 text-dark-green rounded text-sm elegant-font border border-green-100">
+                        <i class="fas fa-clock mr-2"></i>২.৫ ঘণ্টা লেকচার
+                    </span>
+                    <span class="px-4 py-2 bg-red-50 text-red-700 rounded text-sm elegant-font border border-red-100">
+                        <i class="fas fa-fire mr-2"></i>অত্যন্ত গুরুত্বপূর্ণ
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16">
+        <div class="container mx-auto px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-12">
+                
+                <div class="lg:col-span-1">
+                    <div class="bg-white border border-gray-200 sticky top-32 rounded-sm shadow-sm">
+                        <div class="p-4 bg-gray-50 border-b border-gray-200">
+                            <h3 class="elegant-font font-bold text-lg text-charcoal">টপিকস সূচিপত্র</h3>
+                        </div>
+                        <nav>
+                            <a href="#intro" class="sidebar-link active">স্কেলার ও ভেক্টর রাশি</a>
+                            <a href="#addition" class="sidebar-link">ভেক্টর যোজন (Parallelogram Law)</a>
+                            <a href="#multiplication" class="sidebar-link">ডট ও ক্রস গুণন</a>
+                            <a href="#calculus" class="sidebar-link">গ্রেডিয়েন্ট, ডাইভারজেন্স, কার্ল</a>
+                            <a href="#math" class="sidebar-link">নদী-নৌকা সমস্যা (Special)</a>
+                        </nav>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-3">
+                    
+                    <div id="video" class="mb-12">
+                        <div class="video-thumbnail relative aspect-video bg-gray-900 mb-6 rounded-sm overflow-hidden cursor-pointer group">
+                            <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" class="w-full h-full object-cover opacity-60 group-hover:scale-105 transition duration-700" alt="Vector Analysis">
+                            <div class="play-button">
+                                <i class="fas fa-play ml-1"></i>
+                            </div>
+                            <div class="absolute bottom-4 left-4 text-white">
+                                <span class="bg-green-600 px-2 py-1 text-xs rounded font-bold mr-2">PREMIUM CLASS</span>
+                                <span class="text-lg elegant-font">ভেক্টর অ্যানালাইসিস - ওয়ান শট ক্লাস</span>
+                            </div>
+                        </div>
+                    </div>
+                 
+
+[Image of Parallelogram Law of Vectors]
+
+                    <div id="addition" class="content-card">
+                        <h2 class="headline-font text-3xl mb-6 text-dark-green">১. সামান্তরিক সূত্র (Parallelogram Law)</h2>
+                        <p class="reading-font text-gray-700 mb-4">
+                            যদি কোনো সামান্তরিকের দুটি সন্নিহিত বাহু দ্বারা একই সময়ে ক্রিয়ারত দুটি ভেক্টরের মান ও দিক নির্দেশ করা যায়, তবে ওই বাহুদ্বয়ের ছেদবিন্দু দিয়ে অঙ্কিত কর্ণই ভেক্টরদ্বয়ের লব্ধির মান ও দিক নির্দেশ করবে।
+                        </p>
+                        
+                        <div class="formula-box">
+                            <div class="mb-2 text-gold">লব্ধির মান (Magnitude):</div>
+                            <div class="mb-6 text-2xl">R = √(P² + Q² + 2PQ cosα)</div>
+                            
+                            <div class="mb-2 text-gold">লব্ধির দিক (Direction):</div>
+                            <div class="text-2xl">tanθ = (Q sinα) / (P + Q cosα)</div>
+                        </div>
+
+                        <p class="reading-font text-sm text-gray-500 italic">
+                            * এখানে α হলো দুটি ভেক্টরের মধ্যবর্তী কোণ এবং θ হলো লব্ধি ভেক্টর P এর সাথে যে কোণ উৎপন্ন করে।
+                        </p>
+                    </div>
+
+                    <div id="multiplication" class="content-card">
+                        <h2 class="headline-font text-3xl mb-6 text-charcoal">২. ভেক্টর গুণন (Vector Multiplication)</h2>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div>
+                                <h4 class="font-bold text-xl mb-3 elegant-font text-dark-green">ডট গুণন (Scalar Product)</h4>
+                                <p class="reading-font text-sm mb-3">দুটি ভেক্টরের গুণফল যদি একটি স্কেলার রাশি হয়। উদাহরণ: কাজ (Work)।</p>
+                                <div class="bg-gray-50 p-4 border border-gray-200 text-center font-serif text-lg">
+                                    A · B = AB cosθ
+                                </div>
+                                <ul class="mt-3 text-sm list-disc list-inside text-gray-600">
+                                    <li>বিনিময় সূত্র মেনে চলে</li>
+                                    <li>i·i = j·j = k·k = 1</li>
+                                    <li>i·j = j·k = k·i = 0</li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <h4 class="font-bold text-xl mb-3 elegant-font text-dark-green">ক্রস গুণন (Vector Product)</h4>
+                                <p class="reading-font text-sm mb-3">দুটি ভেক্টরের গুণফল যদি একটি ভেক্টর রাশি হয়। উদাহরণ: টর্ক (Torque)।</p>
+                                <div class="bg-gray-50 p-4 border border-gray-200 text-center font-serif text-lg">
+                                    A × B = (AB sinθ) η̂
+                                </div>
+                                <ul class="mt-3 text-sm list-disc list-inside text-gray-600">
+                                    <li>বিনিময় সূত্র মানে না (A×B = -B×A)</li>
+                                    <li>i×i = 0</li>
+                                    <li>i×j = k</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="math" class="math-special-box">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 rounded-full bg-dark-green text-white flex items-center justify-center mr-3">
+                                <i class="fas fa-ship"></i>
+                            </div>
+                            <h2 class="headline-font text-2xl text-charcoal">মাস্টার টপিক: নদী ও নৌকা</h2>
+                        </div>
+                        
+                        <p class="reading-font text-gray-700 mb-6">
+                            সৃজনশীল প্রশ্নের জন্য সবচেয়ে জনপ্রিয় টপিক। সাধারণত দুই ধরনের প্রশ্ন আসে:
+                        </p>
+
+                        <div class="space-y-6">
+                            <div class="bg-white p-6 border border-gray-200 rounded shadow-sm">
+                                <h4 class="font-bold text-lg mb-2 text-dark-green">কেস ১: ন্যূনতম দূরত্বে নদী পারাপার</h4>
+                                <p class="text-sm text-gray-600 mb-3">সোজাসুজি নদী পার হতে হলে স্রোতের প্রতিকূলে রওনা দিতে হবে।</p>
+                                <div class="font-mono bg-gray-50 p-2 text-sm text-charcoal">
+                                    α = cos⁻¹(-u/v)<br>
+                                    সময়, t = d / (v sinα)
+                                </div>
+                            </div>
+
+                            <div class="bg-white p-6 border border-gray-200 rounded shadow-sm">
+                                <h4 class="font-bold text-lg mb-2 text-dark-green">কেস ২: ন্যূনতম সময়ে নদী পারাপার</h4>
+                                <p class="text-sm text-gray-600 mb-3">সোজাসুজি (90° কোণে) রওনা দিতে হবে।</p>
+                                <div class="font-mono bg-gray-50 p-2 text-sm text-charcoal">
+                                    α = 90°<br>
+                                    সময়, t = d / v
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-charcoal text-white p-10 rounded-sm text-center relative overflow-hidden mt-12">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-gold to-transparent"></div>
+                        <h3 class="headline-font text-3xl mb-4">গাণিতিক সমস্যার সমাধান</h3>
+                        <p class="reading-font text-gray-400 mb-8 max-w-xl mx-auto">
+                            শাহজাহান তপন এবং আমির হোসেন স্যারের বইয়ের সকল গুরুত্বপূর্ণ অংকের সমাধান পিডিএফ আকারে আছে।
+                        </p>
+                        <div class="flex justify-center space-x-4">
+                            <button class="gold-button bg-white/5 hover:bg-white/10 text-white border-white/20">
+                                <i class="fas fa-file-pdf mr-2"></i> নোট ডাউনলোড
+                            </button>
+                            <button class="green-button">
+                                <i class="fas fa-play-circle mr-2"></i> সলভ ক্লাস দেখুন
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-between mt-12">
+                        <a href="physics_chapter1.html" class="text-gray-500 hover:text-dark-green elegant-font flex items-center transition">
+                            <i class="fas fa-arrow-left mr-2"></i> অধ্যায় ১: ভৌত জগৎ
+                        </a>
+                        <a href="physics_chapter3.html" class="green-button elegant-font flex items-center">
+                            পরবর্তী অধ্যায় (গতিবিদ্যা) <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-charcoal text-white py-16 border-t border-gold/20">
+        <div class="container mx-auto px-8 text-center">
+            <div class="headline-font text-2xl mb-4">সহজ শিক্ষণ</div>
+            <p class="reading-font text-gray-500 mb-8">HSC 2026 | পদার্থবিজ্ঞান ১ম পত্র</p>
+            <div class="flex justify-center space-x-6 text-gray-400">
+                <a href="#" class="hover:text-gold transition"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="hover:text-gold transition"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="hover:text-gold transition"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p class="text-xs text-gray-600 mt-8 elegant-font">&copy; ২০২৫ সহজ শিক্ষণ</p>
+        </div>
+    </footer>
+
+</body>
+</html>

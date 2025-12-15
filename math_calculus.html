@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ক্যালকুলাস জোন | উচ্চতর গণিত</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@100;200;300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&family=Source+Serif+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --charcoal: #1A1A1A;
+            --cream: #F7F5F0;
+            --dark-green: #0A5C36;
+        }
+        
+        body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: #F7F5F0; }
+        
+        .headline-font { font-family: 'Playfair Display', serif; }
+        .elegant-font { font-family: 'Cormorant Garamond', serif; }
+        .math-font { font-family: 'Source Serif Pro', monospace; }
+
+        .gold-button {
+            border: 1px solid var(--gold); color: var(--gold); padding: 0.75rem 2rem;
+            transition: all 0.3s;
+        }
+        .gold-button:hover { background: var(--gold); color: black; }
+
+        .calc-box {
+            background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2rem; border-radius: 2px; transition: all 0.3s;
+        }
+        .calc-box:hover { border-color: var(--gold); transform: translateY(-5px); }
+    </style>
+</head>
+<body class="antialiased">
+
+    <nav class="p-6 flex justify-between items-center border-b border-white/10">
+        <div class="text-2xl font-bold elegant-font text-gold">ক্যালকুলাস জোন</div>
+        <a href="math.html" class="text-gray-400 hover:text-white transition"><i class="fas fa-arrow-left mr-2"></i> গণিত মেনু</a>
+    </nav>
+
+    <section class="py-20 text-center px-4">
+        <h1 class="headline-font text-5xl md:text-7xl mb-6 text-white">অন্তরীকরণ ও যৌগজীকরণ</h1>
+        <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-10">
+            লিমিট থেকে শুরু করে ক্ষেত্রফল নির্ণয়—ক্যালকুলাসের প্রতিটি ধাপের সহজ ব্যাখ্যা।
+        </p>
+    </section>
+   
+
+[Image of basic calculus derivatives diagram]
+
+    <section class="container mx-auto px-8 pb-20">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            
+            <div class="calc-box">
+                <div class="text-4xl text-gold mb-4"><i class="fas fa-chart-line"></i></div>
+                <h2 class="text-3xl headline-font mb-4">অন্তরীকরণ (Differentiation)</h2>
+                <ul class="space-y-3 text-gray-300 math-font mb-8">
+                    <li>• লিমিটের ধারণা (Limits)</li>
+                    <li>• মূল নিয়মে অন্তরীকরণ (First Principles)</li>
+                    <li>• স্পর্শক ও অভিলম্ব (Tangent & Normal)</li>
+                    <li>• গুরুমান ও লঘুমান (Maxima & Minima)</li>
+                </ul>
+                <button class="gold-button w-full">শুরু করুন</button>
+            </div>
+
+            <div class="calc-box">
+                <div class="text-4xl text-gold mb-4"><i class="fas fa-puzzle-piece"></i></div>
+                <h2 class="text-3xl headline-font mb-4">যৌগজীকরণ (Integration)</h2>
+                <ul class="space-y-3 text-gray-300 math-font mb-8">
+                    <li>• অনির্দিষ্ট যৌগজ (Indefinite Integral)</li>
+                    <li>• প্রতিস্থাপন পদ্ধতি (Substitution Method)</li>
+                    <li>• নির্দিষ্ট যৌগজ (Definite Integral)</li>
+                    <li>• ক্ষেত্রফল নির্ণয় (Area under curve)</li>
+                </ul>
+                <button class="gold-button w-full">শুরু করুন</button>
+            </div>
+
+        </div>
+    </section>
+
+</body>
+</html>

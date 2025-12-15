@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>অধ্যায় ২: গুণগত রসায়ন | রসায়ন ১ম পত্র</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@100;200;300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&family=Source+Serif+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --platinum: #E5E4E2;
+            --charcoal: #1A1A1A;
+            --cream: #F7F5F0;
+            --dark-green: #0A5C36;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--cream);
+            color: var(--charcoal);
+            letter-spacing: 0.01em;
+            line-height: 1.8;
+        }
+        
+        .headline-font { font-family: 'Playfair Display', serif; font-weight: 700; letter-spacing: -0.02em; }
+        .elegant-font { font-family: 'Cormorant Garamond', serif; font-weight: 500; letter-spacing: 0.02em; }
+        .reading-font { font-family: 'Source Serif Pro', serif; font-weight: 300; letter-spacing: 0.01em; line-height: 1.9; }
+        
+        .header-premium {
+            background: linear-gradient(135deg, #0A3C2A 0%, #0A5C36 100%);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        /* Buttons */
+        .gold-button {
+            background: transparent; color: var(--gold); padding: 0.75rem 2rem;
+            border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 1px;
+            font-family: 'Inter', sans-serif; transition: all 0.3s ease;
+        }
+        .gold-button:hover { background: rgba(212, 175, 55, 0.1); border-color: var(--gold); }
+
+        .green-button {
+            background: linear-gradient(135deg, #0A5C36 0%, #0A7C4F 100%); color: white;
+            padding: 0.75rem 2rem; border: 1px solid rgba(10, 92, 54, 0.3); border-radius: 1px;
+            font-family: 'Inter', sans-serif; transition: all 0.3s ease;
+        }
+        .green-button:hover {
+            background: linear-gradient(135deg, #0A7C4F 0%, #0A5C36 100%);
+            box-shadow: 0 4px 15px rgba(10, 92, 54, 0.3); transform: translateY(-1px);
+        }
+
+        /* Content Boxes */
+        .content-card {
+            background: white; border: 1px solid rgba(0,0,0,0.05); padding: 2.5rem;
+            margin-bottom: 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.02); border-radius: 2px;
+        }
+
+        .formula-box {
+            background: #F0FDF4; border: 1px solid #BBF7D0; padding: 1.5rem;
+            margin: 1.5rem 0; font-family: 'Source Serif Pro', monospace;
+            color: var(--dark-green);
+        }
+
+        .ksp-master-box {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white; padding: 2.5rem; border-radius: 2px; margin: 2rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.1); position: relative;
+        }
+        
+        .ksp-master-box::before {
+            content: 'CQ SPECIAL'; position: absolute; top: 0; right: 0;
+            background: var(--gold); color: black; font-size: 0.7rem; font-weight: bold;
+            padding: 4px 12px;
+        }
+
+        .ion-table th { background: var(--dark-green); color: white; padding: 10px; font-weight: normal; }
+        .ion-table td { border-bottom: 1px solid #eee; padding: 10px; }
+
+        .sidebar-link {
+            display: block; padding: 1rem; border-bottom: 1px solid #eee; color: #555; transition: all 0.2s;
+        }
+        .sidebar-link:hover, .sidebar-link.active {
+            background: #F0FDF4; color: var(--dark-green); padding-left: 1.5rem;
+            border-left: 3px solid var(--dark-green);
+        }
+
+        .navigation-link {
+            position: relative; padding-bottom: 4px; color: rgba(255, 255, 255, 0.9);
+            font-weight: 300; letter-spacing: 0.03em; transition: all 0.3s ease;
+        }
+        .navigation-link:hover { color: white; }
+        
+        .play-button {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 60px; height: 60px; background: rgba(255,255,255,0.9); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; color: var(--dark-green);
+            font-size: 24px; transition: all 0.3s;
+        }
+        .video-thumbnail:hover .play-button { transform: translate(-50%, -50%) scale(1.1); background: white; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="header-premium fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-8">
+            <div class="flex justify-between items-center h-24">
+                <div class="flex items-center space-x-4 text-white">
+                    <div class="w-10 h-10 rounded-full border border-gold/40 flex items-center justify-center">
+                        <div class="text-xs tracking-widest opacity-70">২০২৬</div>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-light tracking-widest elegant-font">HSC 2026</div>
+                        <div class="headline-font text-3xl mt-1">সহজ শিক্ষণ</div>
+                    </div>
+                </div>
+                <nav class="hidden lg:flex space-x-12 items-center">
+                    <a href="index.html" class="navigation-link elegant-font text-lg">হোম</a>
+                    <a href="physics.html" class="navigation-link elegant-font text-lg">পদার্থবিজ্ঞান</a>
+                    <a href="chemistry.html" class="navigation-link elegant-font text-lg text-white font-semibold">রসায়ন</a>
+                    <a href="math.html" class="navigation-link elegant-font text-lg">গণিত</a>
+                    <div class="w-px h-6 bg-white/20"></div>
+                    <button class="gold-button elegant-font text-sm px-6 py-2">প্রোফাইল</button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="bg-white pt-32 pb-12 border-b border-gray-100">
+        <div class="container mx-auto px-8">
+            <div class="flex items-center space-x-3 text-sm elegant-font text-gray-500 mb-6">
+                <a href="index.html" class="hover:text-dark-green">হোম</a>
+                <span>/</span>
+                <a href="chemistry.html" class="hover:text-dark-green">রসায়ন</a>
+                <span>/</span>
+                <span class="text-dark-green font-semibold">অধ্যায় ২</span>
+            </div>
+            
+            <div class="flex flex-col md:flex-row justify-between items-end">
+                <div>
+                    <h1 class="headline-font text-5xl mb-4 text-charcoal">গুণগত রসায়ন</h1>
+                    <p class="reading-font text-xl text-gray-600 max-w-2xl">
+                        পরমাণু মডেল, কোয়ান্টাম সংখ্যা, দ্রাব্যতা গুণফল এবং ল্যাবরেটরিতে আয়ন শনাক্তকরণের বিস্তারিত আলোচনা।
+                    </p>
+                </div>
+                <div class="mt-6 md:mt-0 flex space-x-4">
+                    <span class="px-4 py-2 bg-purple-50 text-purple-700 rounded text-sm elegant-font border border-purple-100">
+                        <i class="fas fa-atom mr-2"></i>মডেলসমূহ
+                    </span>
+                    <span class="px-4 py-2 bg-blue-50 text-blue-700 rounded text-sm elegant-font border border-blue-100">
+                        <i class="fas fa-flask mr-2"></i>ল্যাব গাইড
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16">
+        <div class="container mx-auto px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-12">
+                
+                <div class="lg:col-span-1">
+                    <div class="bg-white border border-gray-200 sticky top-32 rounded-sm shadow-sm">
+                        <div class="p-4 bg-gray-50 border-b border-gray-200">
+                            <h3 class="elegant-font font-bold text-lg text-charcoal">অধ্যায় সূচিপত্র</h3>
+                        </div>
+                        <nav>
+                            <a href="#models" class="sidebar-link active">পরমাণু মডেল (Rutherford & Bohr)</a>
+                            <a href="#quantum" class="sidebar-link">কোয়ান্টাম সংখ্যা ও বিন্যাস</a>
+                            <a href="#spectrum" class="sidebar-link">হাইড্রোজেন বর্ণালী</a>
+                            <a href="#solubility" class="sidebar-link text-dark-green font-semibold">দ্রাব্যতা ও Ksp (Master Topic)</a>
+                            <a href="#ions" class="sidebar-link">আয়ন শনাক্তকরণ</a>
+                        </nav>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-3">
+                    
+                    <div id="video" class="mb-12">
+                        <div class="video-thumbnail relative aspect-video bg-gray-900 mb-6 rounded-sm overflow-hidden cursor-pointer group">
+                            <img src="https://images.unsplash.com/photo-1628595351029-c2bf17511435?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" class="w-full h-full object-cover opacity-60 group-hover:scale-105 transition duration-700" alt="Chemistry Lab">
+                            <div class="play-button">
+                                <i class="fas fa-play ml-1"></i>
+                            </div>
+                            <div class="absolute bottom-4 left-4 text-white">
+                                <span class="bg-purple-600 px-2 py-1 text-xs rounded font-bold mr-2">ANIMATION</span>
+                                <span class="text-lg elegant-font">বোরের পরমাণু মডেল ও বর্ণালী</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="models" class="content-card">
+                        <h2 class="headline-font text-3xl mb-6 text-dark-green">১. পরমাণু মডেল (Atomic Models)</h2>
+                        <p class="reading-font text-gray-700 mb-4">
+                            রাদারফোর্ডের আলফা কণা বিচ্ছুরণ পরীক্ষা থেকে নিউক্লিয়াস আবিষ্কার এবং বোর মডেলের শক্তিস্তর ধারণা—রসায়নের ভিত্তি।
+                        </p>
+                        <div class="bg-gray-50 p-6 border-l-4 border-gold">
+                            <h4 class="font-bold mb-2 elegant-font text-charcoal">বোর মডেলের স্বীকার্যসমূহ:</h4>
+                            <ul class="list-disc list-inside text-sm text-gray-600 space-y-2">
+                                <li>শক্তিস্তর বা অরবিট বিষয়ক ধারণা</li>
+                                <li>কৌণিক ভরবেগ বিষয়ক ধারণা (mvr = nh/2π)</li>
+                                <li>শক্তির বিকিরণ বা শোষণ বিষয়ক ধারণা</li>
+                            </ul>
+                        </div>
+                    </div>
+                   
+
+[Image of atomic orbital shapes s p d f]
+
+                    <div id="quantum" class="content-card">
+                        <h2 class="headline-font text-3xl mb-6 text-charcoal">২. কোয়ান্টাম সংখ্যা</h2>
+                        <p class="reading-font text-gray-700 mb-6">
+                            একটি পরমাণুতে ইলেকট্রনের সঠিক অবস্থান ও শক্তি নির্ণয়ের জন্য ৪টি কোয়ান্টাম সংখ্যা ব্যবহৃত হয়।
+                        </p>
+                        
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-white border border-gray-200 p-4 rounded text-center shadow-sm">
+                                <div class="text-2xl font-bold text-dark-green mb-1">n</div>
+                                <div class="text-xs text-gray-500 uppercase">প্রধান কোয়ান্টাম সংখ্যা</div>
+                                <div class="text-sm mt-2 text-gray-600">আকার নির্দেশ করে</div>
+                            </div>
+                            <div class="bg-white border border-gray-200 p-4 rounded text-center shadow-sm">
+                                <div class="text-2xl font-bold text-dark-green mb-1">l</div>
+                                <div class="text-xs text-gray-500 uppercase">সহকারী কোয়ান্টাম সংখ্যা</div>
+                                <div class="text-sm mt-2 text-gray-600">আকৃতি (s,p,d,f) নির্দেশ করে</div>
+                            </div>
+                            <div class="bg-white border border-gray-200 p-4 rounded text-center shadow-sm">
+                                <div class="text-2xl font-bold text-dark-green mb-1">m</div>
+                                <div class="text-xs text-gray-500 uppercase">ম্যাগনেটিক কোয়ান্টাম সংখ্যা</div>
+                                <div class="text-sm mt-2 text-gray-600">ত্রিমাত্রিক বিন্যাস নির্দেশ করে</div>
+                            </div>
+                            <div class="bg-white border border-gray-200 p-4 rounded text-center shadow-sm">
+                                <div class="text-2xl font-bold text-dark-green mb-1">s</div>
+                                <div class="text-xs text-gray-500 uppercase">স্পিন কোয়ান্টাম সংখ্যা</div>
+                                <div class="text-sm mt-2 text-gray-600">ঘূর্ণনের দিক নির্দেশ করে</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="solubility" class="ksp-master-box">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 rounded-full border border-blue-400 flex items-center justify-center mr-4 text-blue-300 text-xl">
+                                <i class="fas fa-vial"></i>
+                            </div>
+                            <div>
+                                <h2 class="headline-font text-3xl text-white">মাস্টার টপিক: দ্রাব্যতা ও Ksp</h2>
+                                <p class="text-sm text-gray-400 mt-1">সবচেয়ে বেশি সৃজনশীল প্রশ্ন এখান থেকেই আসে</p>
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div>
+                                <h4 class="text-gold font-bold mb-4 elegant-font text-xl border-b border-white/10 pb-2">অধঃক্ষেপ পড়বে কি?</h4>
+                                <p class="text-gray-300 text-sm mb-4 leading-relaxed">
+                                    দুটি দ্রবণ মিশ্রিত করলে অধঃক্ষেপ পড়বে কিনা তা জানতে আয়নিক গুণফল (Kip) বের করতে হয়।
+                                </p>
+                                <ul class="text-gray-300 text-sm space-y-2 font-mono bg-white/5 p-4 rounded">
+                                    <li>Kip > Ksp : অধঃক্ষেপ পড়বে</li>
+                                    <li>Kip < Ksp : অসম্পৃক্ত দ্রবণ</li>
+                                    <li>Kip = Ksp : সম্পৃক্ত দ্রবণ</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="text-gold font-bold mb-4 elegant-font text-xl border-b border-white/10 pb-2">সম-আয়ন প্রভাব</h4>
+                                <p class="text-gray-300 text-sm mb-4 leading-relaxed">
+                                    মৃদু তড়িৎ বিশ্লেষ্যের উপস্থিতিতে সম-আয়ন থাকলে লবণের দ্রাব্যতা হ্রাস পায়।
+                                </p>
+                                <div class="text-center mt-6">
+                                    <button class="bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded text-sm transition">
+                                        <i class="fas fa-calculator mr-2"></i> Ksp ম্যাথ সল্ভার
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="ions" class="content-card">
+                        <h2 class="headline-font text-3xl mb-6 text-charcoal">৩. আয়ন শনাক্তকরণ</h2>
+                        <p class="reading-font text-gray-700 mb-6">
+                            শিখা পরীক্ষা এবং সিক্ত পরীক্ষার মাধ্যমে লবণের ক্ষারকীয় ও অম্লীয় মূলক শনাক্ত করা হয়।
+                        </p>
+                        
+                        <div class="overflow-x-auto">
+                            <table class="w-full ion-table text-sm text-left">
+                                <thead>
+                                    <tr>
+                                        <th>আয়ন</th>
+                                        <th>বিকারক</th>
+                                        <th>অধঃক্ষেপের বর্ণ</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="font-bold text-dark-green">Cu²⁺</td>
+                                        <td>NH₄OH (অধিক)</td>
+                                        <td>গাড় নীল দ্রবণ</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-bold text-dark-green">Fe³⁺</td>
+                                        <td>K₄[Fe(CN)₆]</td>
+                                        <td>গাড় নীল (প্রুশিয়ান ব্লু)</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-bold text-dark-green">Zn²⁺</td>
+                                        <td>K₄[Fe(CN)₆]</td>
+                                        <td>সাদা অধঃক্ষেপ</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-bold text-dark-green">Cl⁻</td>
+                                        <td>AgNO₃</td>
+                                        <td>সাদা (NH₄OH এ দ্রবণীয়)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="bg-charcoal text-white p-10 rounded-sm text-center relative overflow-hidden mt-12">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-gold to-transparent"></div>
+                        <h3 class="headline-font text-3xl mb-4">গাণিতিক সমস্যার হ্যান্ডনোট</h3>
+                        <p class="reading-font text-gray-400 mb-8 max-w-xl mx-auto">
+                            বর্ণালী এবং দ্রাব্যতা গুণফল সংক্রান্ত ১০১টি গুরুত্বপূর্ণ গাণিতিক সমস্যার সমাধান।
+                        </p>
+                        <div class="flex justify-center space-x-4">
+                            <button class="gold-button bg-white/5 hover:bg-white/10 text-white border-white/20">
+                                <i class="fas fa-file-pdf mr-2"></i> PDF ডাউনলোড
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-between mt-12">
+                        <a href="chemistry.html" class="text-gray-500 hover:text-dark-green elegant-font flex items-center transition">
+                            <i class="fas fa-arrow-left mr-2"></i> রসায়ন সূচিপত্র
+                        </a>
+                        <a href="chemistry_chapter3.html" class="green-button elegant-font flex items-center">
+                            পরবর্তী অধ্যায় (পর্যায়বৃত্ত ধর্ম) <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-charcoal text-white py-16 border-t border-gold/20">
+        <div class="container mx-auto px-8 text-center">
+            <div class="headline-font text-2xl mb-4">সহজ শিক্ষণ</div>
+            <p class="reading-font text-gray-500 mb-8">HSC 2026 | রসায়ন ১ম পত্র</p>
+            <div class="flex justify-center space-x-6 text-gray-400">
+                <a href="#" class="hover:text-gold transition"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="hover:text-gold transition"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="hover:text-gold transition"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p class="text-xs text-gray-600 mt-8 elegant-font">&copy; ২০২৫ সহজ শিক্ষণ</p>
+        </div>
+    </footer>
+
+</body>
+</html>

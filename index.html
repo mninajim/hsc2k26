@@ -244,8 +244,9 @@
         }
         
         .hero-premium {
+            /* REPLACED IMAGE: Now using an abstract library/book image */
             background: linear-gradient(rgba(10, 60, 42, 0.95), rgba(10, 92, 54, 0.95)), 
-                        url('https://images.unsplash.com/photo-1544717305-2782549b5136?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+                        url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -362,72 +363,26 @@
         
         .green-button:hover {
             background: linear-gradient(135deg, #0A7C4F 0%, #0A5C36 100%);
-            border-color: rgba(212, 175, 55, 0.3);
+            box-shadow: 0 8px 20px rgba(10, 92, 54, 0.2);
             transform: translateY(-1px);
         }
         
-        .section-title {
-            position: relative;
-            display: inline-block;
-            margin-bottom: 3rem;
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -12px;
-            left: 0;
-            width: 60px;
-            height: 2px;
-            background: var(--gold);
-        }
-        
         .content-divider {
-            width: 100%;
             height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
-            margin: 2.5rem 0;
-        }
-        
-        .scroll-indicator {
-            position: absolute;
-            bottom: 3rem;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 24px;
-            height: 40px;
-            border: 1px solid rgba(212, 175, 55, 0.4);
-            border-radius: 12px;
-            display: flex;
-            justify-content: center;
-            padding-top: 8px;
-        }
-        
-        .scroll-indicator::before {
-            content: '';
-            width: 2px;
-            height: 8px;
-            background: var(--gold);
-            border-radius: 1px;
-            animation: scroll 2s infinite;
-        }
-        
-        @keyframes scroll {
-            0% { transform: translateY(0); opacity: 1; }
-            100% { transform: translateY(10px); opacity: 0; }
+            background: rgba(0, 0, 0, 0.08);
+            margin: 1.5rem auto;
+            width: 60%;
         }
     </style>
 </head>
 <body class="antialiased">
 
-    <!-- Premium Header -->
-    <header class="header-premium text-white fixed w-full z-50">
-        <div class="container mx-auto px-8 py-6">
-            <div class="flex justify-between items-center">
-                <div class="flex items-center space-x-4">
-                    <div class="w-16 h-16 rounded-full border border-gold/20 flex items-center justify-center bg-white/5 backdrop-blur-sm">
-                        <div class="text-center">
-                            <div class="text-2xl font-bold elegant-font gold-accent">HSC</div>
+    <header class="header-premium fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-8">
+            <div class="flex justify-between items-center h-24">
+                <div class="flex items-center space-x-4 text-white">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-10 h-10 rounded-full border border-gold/40 flex items-center justify-center">
                             <div class="text-xs tracking-widest opacity-70">২০২৬</div>
                         </div>
                     </div>
@@ -436,7 +391,6 @@
                         <div class="headline-font text-3xl mt-1">সহজ শিক্ষণ</div>
                     </div>
                 </div>
-                
                 <nav class="hidden lg:flex space-x-12 items-center">
                     <a href="#home" class="navigation-link elegant-font text-lg">হোম</a>
                     <a href="#subjects" class="navigation-link elegant-font text-lg">বিষয়সমূহ</a>
@@ -445,7 +399,6 @@
                     <div class="w-px h-6 bg-white/20"></div>
                     <button class="gold-button elegant-font">প্রবেশ</button>
                 </nav>
-                
                 <button class="lg:hidden text-2xl text-white/80">
                     <i class="fas fa-bars"></i>
                 </button>
@@ -453,121 +406,69 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section id="home" class="hero-premium text-white pt-40 pb-32 relative">
         <div class="container mx-auto px-8">
             <div class="max-w-4xl mx-auto text-center">
-                <div class="inline-block px-6 py-3 border border-white/10 bg-white/5 backdrop-blur-sm mb-12">
-                    <span class="tracking-widest text-sm elegant-font">প্রিমিয়াম শিক্ষার অভিজ্ঞতা</span>
+                <div class="inline-block px-6 py-3 border border-white/10 bg-white/5 backdrop-blur-sm mb-8">
+                    <p class="elegant-font tracking-widest text-sm uppercase text-white/80">Ultimate Premium Learning</p>
                 </div>
-                
-                <h1 class="headline-font text-6xl leading-tight mb-10">
-                    জটিলতা থেকে <span class="gold-accent">স্পষ্টতা</span>
+                <h1 class="headline-font text-6xl md:text-7xl mb-8 leading-tight">
+                    <span class="gold-accent">HSC 2026</span> - এর প্রস্তুতি এখন আরও সহজ
                 </h1>
-                
-                <p class="reading-font text-xl leading-relaxed opacity-90 mb-16 max-w-3xl mx-auto">
-                    HSC 2026 এর সবচেয়ে কঠিন বিষয়গুলোর গভীরে গিয়ে আমরা সরলতম ব্যাখ্যা নিয়ে আসি। 
-                    কোন শর্টকাট নয়, কোন অস্পষ্টতা নয় — শুধু পরিষ্কার, সুনির্দিষ্ট এবং সম্পূর্ণ বোধগম্য ব্যাখ্যা।
+                <p class="reading-font text-xl mb-12 max-w-2xl mx-auto text-white/90">
+                    সেরা শিক্ষকদের তৈরি সহজবোধ্য নোট, ভিডিও এবং মডেল টেস্টের মাধ্যমে নিশ্চিত করুন আপনার A+।
                 </p>
-                
                 <div class="flex justify-center space-x-6">
-                    <a href="#explanations" class="green-button elegant-font text-lg">
-                        <i class="fas fa-book-open mr-3"></i>ব্যাখ্যা পড়ুন
-                    </a>
-                    <a href="#subjects" class="gold-button elegant-font text-lg">
-                        <i class="fas fa-search mr-3"></i>বিষয় নির্বাচন
-                    </a>
+                    <a href="#subjects" class="green-button elegant-font"> বিষয়সমূহ দেখুন </a>
+                    <a href="#" class="gold-button elegant-font"> ফ্রি ক্লাস করুন </a>
                 </div>
             </div>
         </div>
-        
-        <div class="scroll-indicator"></div>
     </section>
 
-    <!-- Subjects Section -->
-    <section id="subjects" class="py-32 platinum-gradient">
+    <section id="subjects" class="py-32">
         <div class="container mx-auto px-8">
             <div class="text-center mb-20">
-                <h2 class="headline-font text-5xl mb-6">বিষয়সমূহ</h2>
-                <p class="reading-font text-xl text-gray-600 max-w-3xl mx-auto">
-                    প্রতিটি বিষয়ের জন্য গভীরভাবে গবেষণা করে তৈরি করা ব্যাখ্যা
+                <h2 class="headline-font text-5xl mb-6">গুরুত্বপূর্ণ বিষয়সমূহ</h2>
+                <p class="reading-font text-gray-600 max-w-3xl mx-auto">
+                    আপনার বিজ্ঞান বিভাগের প্রস্তুতির জন্য প্রয়োজনীয় সকল বিষয়
                 </p>
             </div>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-24">
-                <!-- Mathematics -->
-                <div class="ultra-card p-10">
-                    <div class="subject-icon-premium mx-auto">
-                        <i class="fas fa-square-root-alt"></i>
-                    </div>
-                    <h3 class="headline-font text-3xl text-center mb-6">গণিত</h3>
-                    
-                    <div class="content-divider"></div>
-                    
-                    <p class="reading-font text-gray-700 mb-8 text-center">
-                        ক্যালকুলাস থেকে জ্যামিতি, প্রতিটি ধারণার গভীরে গিয়ে সহজ ব্যাখ্যা
-                    </p>
-                    
-                    <div class="mb-10">
-                        <div class="text-sm uppercase tracking-widest mb-4 text-gray-500 elegant-font">মূল অধ্যায়</div>
-                        <div class="flex flex-wrap justify-center">
-                            <span class="chapter-tag-premium">ক্যালকুলাস</span>
-                            <span class="chapter-tag-premium">ত্রিকোণমিতি</span>
-                            <span class="chapter-tag-premium">সেট</span>
-                            <span class="chapter-tag-premium">সম্ভাবনা</span>
-                        </div>
-                    </div>
-                    
-                    <div class="text-center">
-                        <a href="#" class="gold-button elegant-font">
-                            বিস্তারিত দেখুন
-                        </a>
-                    </div>
-                </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
                 
-                <!-- Physics -->
                 <div class="ultra-card p-10">
                     <div class="subject-icon-premium mx-auto">
                         <i class="fas fa-atom"></i>
                     </div>
                     <h3 class="headline-font text-3xl text-center mb-6">পদার্থবিজ্ঞান</h3>
-                    
                     <div class="content-divider"></div>
-                    
                     <p class="reading-font text-gray-700 mb-8 text-center">
-                        নিউটন থেকে আইনস্টাইন, জটিল সূত্রের সরল এবং বোধগম্য ব্যাখ্যা
+                        ভেক্টর বিশ্লেষণ থেকে আধুনিক পদার্থবিজ্ঞান, সব কিছুর সহজবোধ্য আলোচনা
                     </p>
-                    
                     <div class="mb-10">
                         <div class="text-sm uppercase tracking-widest mb-4 text-gray-500 elegant-font">মূল অধ্যায়</div>
                         <div class="flex flex-wrap justify-center">
+                            <span class="chapter-tag-premium">ভেক্টর</span>
                             <span class="chapter-tag-premium">গতিবিদ্যা</span>
-                            <span class="chapter-tag-premium">তাপগতিবিদ্যা</span>
-                            <span class="chapter-tag-premium">তরঙ্গ</span>
-                            <span class="chapter-tag-premium">আলোকবিজ্ঞান</span>
+                            <span class="chapter-tag-premium">পর্যায়বৃত্ত গতি</span>
+                            <span class="chapter-tag-premium">তড়িৎ</span>
                         </div>
                     </div>
-                    
                     <div class="text-center">
-                        <a href="#" class="gold-button elegant-font">
-                            বিস্তারিত দেখুন
-                        </a>
+                        <a href="physics.html" class="green-button elegant-font"> বিস্তারিত দেখুন </a>
                     </div>
                 </div>
-                
-                <!-- Chemistry -->
+
                 <div class="ultra-card p-10">
                     <div class="subject-icon-premium mx-auto">
                         <i class="fas fa-vial"></i>
                     </div>
                     <h3 class="headline-font text-3xl text-center mb-6">রসায়ন</h3>
-                    
                     <div class="content-divider"></div>
-                    
                     <p class="reading-font text-gray-700 mb-8 text-center">
                         রাসায়নিক বন্ধন থেকে জৈব যৌগ, প্রতিটি বিক্রিয়ার স্পষ্ট ব্যাখ্যা
                     </p>
-                    
                     <div class="mb-10">
                         <div class="text-sm uppercase tracking-widest mb-4 text-gray-500 elegant-font">মূল অধ্যায়</div>
                         <div class="flex flex-wrap justify-center">
@@ -577,83 +478,81 @@
                             <span class="chapter-tag-premium">অ্যাসিড-ক্ষার</span>
                         </div>
                     </div>
-                    
                     <div class="text-center">
-                        <a href="#" class="gold-button elegant-font">
-                            বিস্তারিত দেখুন
-                        </a>
+                        <a href="chemistry.html" class="green-button elegant-font"> বিস্তারিত দেখুন </a>
                     </div>
                 </div>
+
+                <div class="ultra-card p-10">
+                    <div class="subject-icon-premium mx-auto">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3 class="headline-font text-3xl text-center mb-6">গণিত</h3>
+                    <div class="content-divider"></div>
+                    <p class="reading-font text-gray-700 mb-8 text-center">
+                        ক্যালকুলাস থেকে জ্যামিতি, সমস্যা সমাধানের জন্য প্রয়োজনীয় টিপস
+                    </p>
+                    <div class="mb-10">
+                        <div class="text-sm uppercase tracking-widest mb-4 text-gray-500 elegant-font">মূল অধ্যায়</div>
+                        <div class="flex flex-wrap justify-center">
+                            <span class="chapter-tag-premium">ক্যালকুলাস</span>
+                            <span class="chapter-tag-premium">ত্রিকোণমিতি</span>
+                            <span class="chapter-tag-premium">বীজগণিত</span>
+                            <span class="chapter-tag-premium">স্থানাঙ্ক জ্যামিতি</span>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <a href="math.html" class="green-button elegant-font"> বিস্তারিত দেখুন </a>
+                    </div>
+                </div>
+
             </div>
-            
+
             <div class="section-divider"></div>
         </div>
     </section>
 
-    <!-- Explanations Section -->
     <section id="explanations" class="py-32 bg-white">
         <div class="container mx-auto px-8">
             <div class="text-center mb-20">
-                <h2 class="headline-font text-5xl mb-6">সহজ ব্যাখ্যা</h2>
-                <p class="reading-font text-xl text-gray-600 max-w-3xl mx-auto">
-                    জটিল ধারণাগুলোকে ছোট ছোট অংশে ভাগ করে সম্পূর্ণ বোধগম্য করা
+                <h2 class="headline-font text-5xl mb-6">সহজবোধ্য ব্যাখ্যা</h2>
+                <p class="reading-font text-gray-600 max-w-3xl mx-auto">
+                    HSC 2026 সিলেবাসের সবচেয়ে চ্যালেঞ্জিং টপিকসগুলোর ব্যাখ্যা
                 </p>
             </div>
-            
-            <!-- Explanation 1 -->
+
             <div class="max-w-5xl mx-auto mb-32">
                 <div class="flex items-start mb-12">
                     <div class="number-badge">১</div>
                     <div>
-                        <h3 class="headline-font text-4xl mb-4">ক্যালকুলাস: ডেরিভেটিভের গভীর ব্যাখ্যা</h3>
+                        <h3 class="headline-font text-4xl mb-4">ভেক্টর যোগ: সহজ কৌশল</h3>
                         <div class="flex items-center space-x-4">
-                            <span class="text-sm text-gray-500 elegant-font tracking-widest">গণিত</span>
+                            <span class="text-sm text-gray-500 elegant-font tracking-widest">পদার্থবিজ্ঞান</span>
                             <span class="w-1 h-1 bg-gray-300 rounded-full"></span>
-                            <span class="text-sm text-gray-500">পড়ার সময়: ১৮ মিনিট</span>
+                            <span class="text-sm text-gray-500">পড়ার সময়: ১৫ মিনিট</span>
                         </div>
                     </div>
                 </div>
                 
                 <div class="image-frame-premium mb-12">
-                    <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="ক্যালকুলাস">
+                    <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="ভেক্টর বিশ্লেষণ">
                 </div>
-                
+
                 <div class="text-block-premium">
                     <p class="reading-font text-lg leading-relaxed mb-6">
-                        ডেরিভেটিভ গণিতের সবচেয়ে গুরুত্বপূর্ণ ধারণাগুলোর মধ্যে একটি। এটি আমাদের বলে যে একটি ফাংশনের মান কত দ্রুত পরিবর্তন হচ্ছে। কিন্তু শুধু সংজ্ঞা নয়, আমরা বুঝবো কেন এটি গুরুত্বপূর্ণ এবং কিভাবে এটি প্রয়োগ করা হয়।
+                        ভেক্টর যোগের সূত্রগুলো প্রায়শই শিক্ষার্থীদের কাছে জটিল মনে হয়। এখানে আমরা ত্রিভুজ সূত্র, সামান্তরিক সূত্র এবং বহুভুজ সূত্রের মাধ্যমে ভেক্টর যোগকে ধাপে ধাপে সহজ উপায়ে বোঝার চেষ্টা করব। এই কৌশলগুলো আপনাকে দ্রুত ও নির্ভুলভাবে গাণিতিক সমস্যার সমাধান করতে সাহায্য করবে।
                     </p>
-                    
-                    <div class="quote-box-premium">
-                        <p>"ডেরিভেটিভ হলো কোনো ফাংশনের পরিবর্তনের হার। আপনি যদি ভাবেন যে কোনো গাড়ির গতি হচ্ছে অবস্থানের ডেরিভেটিভ, আর ত্বরণ হচ্ছে গতির ডেরিভেটিভ, তাহলে ধারণাটি পরিষ্কার হয়ে যাবে।"</p>
+
+                    <div class="bg-gray-50 p-6 border-l-4 border-gray-200 mt-8">
+                        <h4 class="elegant-font text-xl mb-3 text-gold-accent">গুরুত্বপূর্ণ টিপস:</h4>
+                        <ul class="list-disc list-inside reading-font text-gray-700 space-y-2 ml-4">
+                            <li>ত্রিভুজ সূত্রের ক্ষেত্রে, দুটি সন্নিহিত বাহু একই ক্রমে এবং তৃতীয় বাহু বিপরীত ক্রমে নেওয়া আবশ্যক।</li>
+                            <li>সামান্তরিক সূত্রের মাধ্যমে দুটি ভেক্টরের লব্ধি নির্ণয় করা সবচেয়ে কার্যকর।</li>
+                        </ul>
                     </div>
-                    
-                    <p class="reading-font text-lg leading-relaxed mb-8">
-                        গাণিতিকভাবে, f(x) ফাংশনের ডেরিভেটিভ f'(x) হিসাবে প্রকাশ করা হয়। এটির সংজ্ঞা হলো সীমার মাধ্যমে:
-                    </p>
-                    
-                    <div class="formula-box-premium">
-                        <div class="text-center">
-                            <div class="text-2xl mb-2 elegant-font">f'(x) = lim<sub>h→0</sub> [f(x+h) - f(x)] / h</div>
-                            <div class="text-sm text-gray-400 mt-4">এটি হলো ডেরিভেটিভের প্রথাগত সংজ্ঞা</div>
-                        </div>
-                    </div>
-                    
-                    <p class="reading-font text-lg leading-relaxed">
-                        এই সংজ্ঞাটি পড়ে অনেকেরই মনে হয় এটি জটিল। কিন্তু আসলে এটি খুবই সরল। h একটি অতি ক্ষুদ্র সংখ্যা। আমরা দেখছি x বিন্দুতে এবং x+h বিন্দুতে ফাংশনের মানের পার্থক্য। তারপর সেটিকে h দ্বারা ভাগ করছি। h যত ছোট হবে, এই মান তত সঠিক হবে।
-                    </p>
-                </div>
-                
-                <div class="flex justify-between items-center mt-10 pt-8 border-t border-gray-100">
-                    <div class="text-sm text-gray-500 elegant-font">
-                        প্রকাশিত: ১৫ ডিসেম্বর, ২০২৪
-                    </div>
-                    <a href="#" class="gold-button">
-                        সম্পূর্ণ ব্যাখ্যা পড়ুন
-                    </a>
                 </div>
             </div>
-            
-            <!-- Explanation 2 -->
+
             <div class="max-w-5xl mx-auto mb-32">
                 <div class="flex items-start mb-12">
                     <div class="number-badge">২</div>
@@ -668,82 +567,39 @@
                 </div>
                 
                 <div class="image-frame-premium mb-12">
-                    <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="পদার্থবিজ্ঞান">
+                    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="পদার্থবিজ্ঞান">
                 </div>
-                
+
                 <div class="text-block-premium">
                     <p class="reading-font text-lg leading-relaxed mb-6">
                         নিউটনের গতিসূত্রগুলো পদার্থবিজ্ঞানের ভিত্তি তৈরি করেছে। এই তিনটি সূত্র বল এবং গতির মধ্যে সম্পর্ক ব্যাখ্যা করে। আমরা প্রতিটি সূত্রকে আলাদাভাবে বিশ্লেষণ করব এবং দেখব কিভাবে তারা বাস্তব জীবনের সাথে সম্পর্কিত।
                     </p>
-                    
-                    <div class="bg-gray-50 p-8 mb-8 border border-gray-100">
-                        <h4 class="headline-font text-2xl mb-6 gold-accent">নিউটনের তিনটি গতিসূত্র</h4>
-                        <ol class="space-y-6">
-                            <li class="flex items-start">
-                                <div class="w-8 h-8 rounded-full border border-gold/30 flex items-center justify-center mr-4 mt-1">
-                                    <span class="text-sm elegant-font gold-accent">১</span>
-                                </div>
-                                <div>
-                                    <h5 class="font-medium mb-2 elegant-font">জড়তার সূত্র</h5>
-                                    <p class="reading-font text-gray-700">বাহ্যিক বল প্রয়োগ না করা পর্যন্ত কোনো বস্তু তার গতি বজায় রাখবে। স্থির বস্তু স্থির থাকবে, গতিশীল বস্তু সমবেগে সরলরেখায় চলতে থাকবে।</p>
-                                </div>
-                            </li>
-                            <li class="flex items-start">
-                                <div class="w-8 h-8 rounded-full border border-gold/30 flex items-center justify-center mr-4 mt-1">
-                                    <span class="text-sm elegant-font gold-accent">২</span>
-                                </div>
-                                <div>
-                                    <h5 class="font-medium mb-2 elegant-font">F = ma সূত্র</h5>
-                                    <p class="reading-font text-gray-700">প্রযুক্ত বল বস্তুর ভর ও ত্বরণের গুণফলের সমান। এটি বল, ভর এবং ত্বরণের মধ্যে গাণিতিক সম্পর্ক স্থাপন করে।</p>
-                                </div>
-                            </li>
-                            <li class="flex items-start">
-                                <div class="w-8 h-8 rounded-full border border-gold/30 flex items-center justify-center mr-4 mt-1">
-                                    <span class="text-sm elegant-font gold-accent">৩</span>
-                                </div>
-                                <div>
-                                    <h5 class="font-medium mb-2 elegant-font">ক্রিয়া-প্রতিক্রিয়া সূত্র</h5>
-                                    <p class="reading-font text-gray-700">প্রত্যেক ক্রিয়ারই একটি সমান ও বিপরীত প্রতিক্রিয়া আছে। যখন আপনি দেয়ালে বল প্রয়োগ করেন, দেয়ালও আপনাকে সমান বল দিয়ে ঠেলে।</p>
-                                </div>
-                            </li>
-                        </ol>
+
+                    <div class="formula-box-premium">
+                        <p>নিউটনের দ্বিতীয় সূত্র: F = ma</p>
                     </div>
-                    
-                    <p class="reading-font text-lg leading-relaxed">
-                        এই সূত্রগুলো পৃথকভাবে পড়লে মনে হতে পারে তারা সরল। কিন্তু আসলে এরা একে অপরের সাথে গভীরভাবে সম্পর্কিত। প্রথম সূত্রটি দ্বিতীয় সূত্রের একটি বিশেষ ক্ষেত্র (যখন F=0, তখন a=0)। তৃতীয় সূত্রটি বলের প্রকৃতি ব্যাখ্যা করে।
-                    </p>
-                </div>
-                
-                <div class="flex justify-between items-center mt-10 pt-8 border-t border-gray-100">
-                    <div class="text-sm text-gray-500 elegant-font">
-                        প্রকাশিত: ১০ ডিসেম্বর, ২০২৪
+
+                    <div class="quote-box-premium">
+                        "If I have seen further, it is by standing on the shoulders of Giants."
+                        <p class="elegant-font text-right mt-4 text-base">- Isaac Newton</p>
                     </div>
-                    <a href="#" class="gold-button">
-                        সম্পূর্ণ ব্যাখ্যা পড়ুন
-                    </a>
                 </div>
             </div>
             
-            <div class="text-center">
-                <a href="#" class="green-button elegant-font text-lg px-12 py-4">
-                    <i class="fas fa-book mr-3"></i>সমস্ত ব্যাখ্যা দেখুন
-                </a>
-            </div>
         </div>
     </section>
 
-    <!-- Topics Section -->
-    <section id="topics" class="py-32 gold-gradient">
+    <section id="topics" class="py-32 bg-gray-50">
         <div class="container mx-auto px-8">
             <div class="text-center mb-20">
-                <h2 class="headline-font text-5xl mb-6">গুরুত্বপূর্ণ টপিকস</h2>
-                <p class="reading-font text-xl text-gray-600 max-w-3xl mx-auto">
+                <h2 class="headline-font text-5xl mb-6">সকল টপিকস একনজরে</h2>
+                <p class="reading-font text-gray-600 max-w-3xl mx-auto">
                     HSC 2026 সিলেবাসের সবচেয়ে চ্যালেঞ্জিং টপিকসগুলোর ব্যাখ্যা
                 </p>
             </div>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-24">
-                <!-- Topic 1 -->
+                
                 <div class="ultra-card p-8">
                     <div class="flex items-center mb-6">
                         <div class="w-12 h-12 rounded-full border border-gold/20 flex items-center justify-center mr-4">
@@ -754,100 +610,70 @@
                             <div class="text-xs text-gray-500 elegant-font tracking-widest mt-1">গণিত</div>
                         </div>
                     </div>
-                    
                     <div class="content-divider"></div>
-                    
                     <p class="reading-font text-gray-700 mb-6">
-                        sin²θ + cos²θ = 1 থেকে শুরু করে সব গুরুত্বপূর্ণ ত্রিকোণমিতিক অভেদের বিশদ ব্যাখ্যা। প্রতিটি অভেদের উৎপত্তি এবং প্রয়োগ।
+                        sin²θ + cos²θ = 1 এই মৌলিক অভেদের গভীর ব্যাখ্যা এবং ব্যবহার।
                     </p>
-                    
-                    <div class="flex justify-between items-center mt-8 pt-6 border-t border-gray-100">
-                        <span class="text-sm text-gray-500">দুর্ভেদ্য টপিক</span>
-                        <a href="#" class="text-sm elegant-font gold-accent hover:underline">
-                            ব্যাখ্যা পড়ুন →
-                        </a>
-                    </div>
+                    <a href="math.html#trigonometry" class="text-gold hover:text-dark-green transition elegant-font">বিস্তারিত পড়ুন <i class="fas fa-arrow-right text-sm ml-2"></i></a>
                 </div>
-                
-                <!-- Topic 2 -->
+
                 <div class="ultra-card p-8">
                     <div class="flex items-center mb-6">
                         <div class="w-12 h-12 rounded-full border border-gold/20 flex items-center justify-center mr-4">
-                            <i class="fas fa-fire text-gold"></i>
+                            <i class="fas fa-flask text-gold"></i>
                         </div>
                         <div>
-                            <h4 class="headline-font text-xl">তাপগতিবিদ্যার সূত্র</h4>
-                            <div class="text-xs text-gray-500 elegant-font tracking-widest mt-1">পদার্থবিজ্ঞান</div>
-                        </div>
-                    </div>
-                    
-                    <div class="content-divider"></div>
-                    
-                    <p class="reading-font text-gray-700 mb-6">
-                        শূন্যতম থেকে তৃতীয় সূত্র পর্যন্ত সবকটি তাপগতিবিদ্যার সূত্রের বিশদ ব্যাখ্যা। এনট্রপি এবং অভ্যন্তরীণ শক্তির ধারণা।
-                    </p>
-                    
-                    <div class="flex justify-between items-center mt-8 pt-6 border-t border-gray-100">
-                        <span class="text-sm text-gray-500">জটিল ধারণা</span>
-                        <a href="#" class="text-sm elegant-font gold-accent hover:underline">
-                            ব্যাখ্যা পড়ুন →
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Topic 3 -->
-                <div class="ultra-card p-8">
-                    <div class="flex items-center mb-6">
-                        <div class="w-12 h-12 rounded-full border border-gold/20 flex items-center justify-center mr-4">
-                            <i class="fas fa-balance-scale text-gold"></i>
-                        </div>
-                        <div>
-                            <h4 class="headline-font text-xl">রাসায়নিক সাম্যাবস্থা</h4>
+                            <h4 class="headline-font text-xl">জৈব যৌগ নামকরণ</h4>
                             <div class="text-xs text-gray-500 elegant-font tracking-widest mt-1">রসায়ন</div>
                         </div>
                     </div>
-                    
                     <div class="content-divider"></div>
-                    
                     <p class="reading-font text-gray-700 mb-6">
-                        ল শাতলিয়ে এর নীতি, সাম্যাবস্থা ধ্রুবক, এবং কিভাবে বিক্রিয়ার অবস্থা সাম্যাবস্থাকে প্রভাবিত করে তার বিশদ ব্যাখ্যা।
+                        IUPAC পদ্ধতির মাধ্যমে যেকোনো জৈব যৌগের নির্ভুল নামকরণের সহজ গাইডলাইন।
                     </p>
-                    
-                    <div class="flex justify-between items-center mt-8 pt-6 border-t border-gray-100">
-                        <span class="text-sm text-gray-500">গুরুত্বপূর্ণ টপিক</span>
-                        <a href="#" class="text-sm elegant-font gold-accent hover:underline">
-                            ব্যাখ্যা পড়ুন →
-                        </a>
+                    <a href="chemistry.html#organic" class="text-gold hover:text-dark-green transition elegant-font">বিস্তারিত পড়ুন <i class="fas fa-arrow-right text-sm ml-2"></i></a>
+                </div>
+
+                <div class="ultra-card p-8">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full border border-gold/20 flex items-center justify-center mr-4">
+                            <i class="fas fa-bolt text-gold"></i>
+                        </div>
+                        <div>
+                            <h4 class="headline-font text-xl">তড়িৎ প্রবাহের ঘনত্ব</h4>
+                            <div class="text-xs text-gray-500 elegant-font tracking-widest mt-1">পদার্থবিজ্ঞান</div>
+                        </div>
                     </div>
+                    <div class="content-divider"></div>
+                    <p class="reading-font text-gray-700 mb-6">
+                        পরিবাহীর মধ্য দিয়ে তড়িৎ প্রবাহের ঘনত্বের ধারণা এবং এর গাণিতিক বিশ্লেষণ।
+                    </p>
+                    <a href="physics.html#current" class="text-gold hover:text-dark-green transition elegant-font">বিস্তারিত পড়ুন <i class="fas fa-arrow-right text-sm ml-2"></i></a>
                 </div>
             </div>
-            
-            <div class="section-divider"></div>
+
+            <div class="text-center">
+                <a href="#subjects" class="gold-button elegant-font"> সব টপিকস দেখুন </a>
+            </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer-premium text-white py-20">
         <div class="container mx-auto px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-4 gap-16 mb-16">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                
                 <div>
-                    <div class="flex items-center space-x-4 mb-8">
-                        <div class="w-16 h-16 rounded-full border border-gold/20 flex items-center justify-center">
-                            <div class="text-center">
-                                <div class="text-2xl font-bold elegant-font gold-accent">HSC</div>
-                                <div class="text-xs tracking-widest opacity-70">২০২৬</div>
-                            </div>
+                    <div class="flex items-center space-x-2 mb-8">
+                        <div class="w-8 h-8 rounded-full border border-gold/40 flex items-center justify-center">
+                            <div class="text-xs tracking-widest opacity-70">২০২৬</div>
                         </div>
-                        <div>
-                            <div class="text-2xl font-light tracking-widest elegant-font">HSC 2026</div>
-                            <div class="headline-font text-3xl mt-1">সহজ শিক্ষণ</div>
-                        </div>
+                        <div class="headline-font text-xl">সহজ শিক্ষণ</div>
                     </div>
-                    <p class="reading-font text-gray-400 leading-relaxed">
-                        জটিল বিষয়গুলোর সরলতম ব্যাখ্যার জন্য তৈরি একটি প্রিমিয়াম প্ল্যাটফর্ম। কোন শর্টকাট নয়, শুধু গভীর এবং সম্পূর্ণ বোধগম্য ব্যাখ্যা।
+                    <p class="reading-font text-gray-400">
+                        HSC 2026 পরীক্ষার্থীদের জন্য বিজ্ঞানভিত্তিক এবং সম্পূর্ণ সিলেবাস কভার করা হয়েছে। গভীর এবং সম্পূর্ণ বোধগম্য ব্যাখ্যা।
                     </p>
                 </div>
-                
+
                 <div>
                     <h4 class="headline-font text-xl mb-8 gold-accent">দ্রুত লিংক</h4>
                     <ul class="space-y-4">
@@ -855,27 +681,36 @@
                         <li><a href="#subjects" class="text-gray-400 hover:text-white transition elegant-font">বিষয়সমূহ</a></li>
                         <li><a href="#explanations" class="text-gray-400 hover:text-white transition elegant-font">ব্যাখ্যা</a></li>
                         <li><a href="#topics" class="text-gray-400 hover:text-white transition elegant-font">টপিকস</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition elegant-font">যোগাযোগ</a></li>
                     </ul>
                 </div>
-                
+
                 <div>
-                    <h4 class="headline-font text-xl mb-8 gold-accent">বিষয়সমূহ</h4>
+                    <h4 class="headline-font text-xl mb-8 gold-accent">বিষয়</h4>
                     <ul class="space-y-4">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition elegant-font">গণিত</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition elegant-font">পদার্থবিজ্ঞান</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition elegant-font">রসায়ন</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition elegant-font">জীববিজ্ঞান</a></li>
+                        <li><a href="physics.html" class="text-gray-400 hover:text-white transition elegant-font">পদার্থবিজ্ঞান</a></li>
+                        <li><a href="chemistry.html" class="text-gray-400 hover:text-white transition elegant-font">রসায়ন</a></li>
+                        <li><a href="math.html" class="text-gray-400 hover:text-white transition elegant-font">গণিত</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition elegant-font">জীববিজ্ঞান (শীঘ্রই আসছে)</a></li>
                     </ul>
                 </div>
-                
+
                 <div>
                     <h4 class="headline-font text-xl mb-8 gold-accent">যোগাযোগ</h4>
-                    <ul class="space-y-4">
-                        <li class="flex items-center text-gray-400">
+                    <ul class="space-y-4 text-gray-400">
+                        <li class="flex items-center">
                             <i class="fas fa-envelope mr-4 text-gold/60"></i>
-                            <span class="elegant-font">support@hsc2026bangla.edu</span>
+                            <a href="mailto:info@example.com" class="elegant-font hover:text-white transition">info@example.com</a>
                         </li>
-                        <li class="flex items-center text-gray-400">
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-4 text-gold/60"></i>
+                            <span class="elegant-font">+880 1XXXXXXXXX</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-4 text-gold/60"></i>
+                            <span class="elegant-font">ঢাকা, বাংলাদেশ</span>
+                        </li>
+                        <li class="flex items-center">
                             <i class="fas fa-clock mr-4 text-gold/60"></i>
                             <span class="elegant-font">সোম-শুক্র, ৯ঃ০০ - ১৮ঃ০০</span>
                         </li>
